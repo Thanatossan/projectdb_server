@@ -13,7 +13,12 @@
         <example-component></example-component>
     </div>
     </div>
- 
+
+    
+    @if(config('app.env') == 'local')
+    <script src="http://localhost:35729/livereload.js"></script>
+    @endif
     </body>
+ 
  <script src="js/app.js" charset="utf-8"></script>
 </html>
