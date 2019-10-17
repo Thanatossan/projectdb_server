@@ -10,7 +10,6 @@
     <div class="content">
     <div id="app">
          <login></login>
-        <example-component></example-component>
     </div>
     </div>
 
