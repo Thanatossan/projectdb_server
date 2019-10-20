@@ -80,6 +80,7 @@
                         <a href="{{ url('/customer') }}">Profile</a>
                     @else
                         <a href="{{ route('loginchoose') }}">Login</a>
+                        <a href="{{ route('register') }}">Register</a>
 
                 <!--        @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
