@@ -15,6 +15,10 @@
                     @endif
 
                     You are logged in as Admin: 
+
+                    @foreach ($employees as $employee)
+                    <h3> {{$employee->email}} </h3>
+                    @endforeach
                     
                 </div>
             </div>
