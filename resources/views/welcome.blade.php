@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="stylesheet" href="/css/app.css">
 
         <!-- Styles -->
         <style>
@@ -80,6 +82,8 @@
             @endif
 
             <div class="content">
+                <div id="app">
+                    
                 <div class="title m-b-md">
                     Laravel
                 </div>
@@ -97,4 +101,5 @@
             </div>
         </div>
     </body>
+    <script src="js/app.js" charset="utf-8"></script>
 </html>
