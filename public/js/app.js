@@ -49506,8 +49506,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/peach/projectdb/projectdb_server/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/peach/projectdb/projectdb_server/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /mnt/c/xampp/htdocs/laravel_test/projectdb_server/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /mnt/c/xampp/htdocs/laravel_test/projectdb_server/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

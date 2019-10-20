@@ -254,4 +254,6 @@
 <script type="text/javascript" src="{{ asset('/js/firstpagebootstrap.js')}}"></script>
 <script type="text/javascript" src="{{ asset('/js/firstpagejquery.js')}}" ></script>
     </body>
+
+    {{-- <script src="js/app.js"></script> --}}
 </html>
