@@ -49,10 +49,11 @@
                     @else
                         <a href="{{ route('loginchoose') }}">Login</a>
 
-                <!--        @if (Route::has('register'))
+                {{-- <!--        @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
-                        @endif -->
-                    @endauth
+                        @endif  --> --}}
+                    
+                   @endauth
             @endif
             </div>
         </nav>
@@ -63,7 +64,7 @@
           <h1> Login as</h1>
          </div>
          <br><br><br>
-     <button type="button" class="btn btn-primary btn-lg btn-outline-dark btn-warning"> employee</button>
+     <button type="button" class="btn btn-primary btn-lg btn-outline-dark btn-warning" > <a href="{{ url('/home') }}">Employee</a></button>
     <button type="button" class="btn btn-primary btn-lg btn-outline-dark btn-warning" > Customer</button>
     </div>
 </body>
