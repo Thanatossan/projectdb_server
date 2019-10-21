@@ -64,8 +64,8 @@
           <h1> Login as</h1>
          </div>
          <br><br><br>
-    <button type="button" class="btn btn-primary btn-lg btn-outline-dark btn-warning" onclick = "window.location='{{ url('/login') }}'">Employee</button>
-    <button type="button" class="btn btn-primary btn-lg btn-outline-dark btn-warning" onclick = "window.location='{{ url('/admin/login') }}'"> Customer</button>
+    <button type="button" class="btn btn-primary btn-lg btn-outline-dark btn-warning" onclick = "window.location='{{ url('/admin/login') }}'">Employee</button>
+    <button type="button" class="btn btn-primary btn-lg btn-outline-dark btn-warning" onclick = "window.location='{{ url('/login') }}'"> Customer</button>
     </div>
 </body>
 </html>
