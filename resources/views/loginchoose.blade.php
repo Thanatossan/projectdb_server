@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url('/css/fontpage.css') }}" />
    
     <title>Loginpath</title>
-
+ -->
     <!-- style -->
-    <style>
+    <!-- <style>
       .flex-center{
           align-items: center;
           display: flex;
@@ -38,9 +38,9 @@
 
 
 </head>
-<body>
+<body> -->
       <!-- navbar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container"> 
             <a class="navbar-brand" href="{{ url('/') }}"> Navbar logo</a>
             
@@ -49,17 +49,19 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('loginchoose') }}">Login</a>
+                        <a href="{{ route('loginchoose') }}">Login</a> -->
 
-                {{-- <!--        @if (Route::has('register'))
+                 <!--        @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
-                        @endif  --> --}}
-                    
-                   @endauth
+                        @endif  --> 
+                   <!-- @endauth
             @endif
             </div>
-        </nav>
+        </nav> -->
 <!-- end of navbar -->
+@extends('layouts.gridcontainer')
+
+@section('content')
      <br><br><br>
       <div class="container grid"> 
           <div class="container">
@@ -69,5 +71,6 @@
     <button type="button" class="btn btn-primary btn-lg btn-outline-dark btn-light" onclick = "window.location='{{ url('/admin/login') }}'">Employee</button>
     <button type="button" class="btn btn-primary btn-lg btn-outline-dark btn-light" onclick = "window.location='{{ url('/login') }}'"> Customer</button>
     </div>
-</body>
-</html>
+@endsection
+<!-- </body>
+</html> -->
