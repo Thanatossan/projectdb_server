@@ -102,14 +102,16 @@
   <div class="col-lg-3">
 
     <h1 class="my-4">Shop Hub</h1>
+    <h4 class="my-1">Sort by..</h3>
     <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort by
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Vendor</a>
-    <a class="dropdown-item" href="#">Size</a>
-    </div>
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Vendors
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">Vendors</button>
+    <button class="dropdown-item" type="button">Size</button>
+  </div>
+
 </div>
   </div>
   <!-- /.col-lg-3 -->
@@ -117,7 +119,7 @@
   <div class="col-lg-9">
 
     <div class="row">
-
+    
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
