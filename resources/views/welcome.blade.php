@@ -1,20 +1,20 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Laravel</title> -->
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ url('/css/fontpage.css') }}" />
         
         <script type="text/javascript" src="{{ asset('/js/firstpagebootstrap.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('/js/firstpagejquery.js')}}" ></script>
+        <script type="text/javascript" src="{{ asset('/js/firstpagejquery.js')}}" ></script> -->
 
         <!-- Styles -->
-        <style>
+        <!-- <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -66,11 +66,11 @@
                 margin-bottom: 30px;
             }
             
-        </style>
-    </head>
-    <body>
+        </style> -->
+    <!-- </head>
+    <body> -->
     <!-- navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container"> 
             <a class="navbar-brand" href="{{ url('/') }}"> Navbar logo</a>
             
@@ -79,66 +79,47 @@
                     @auth
                         <a href="{{ url('/customer') }}">Profile</a>
                     @else
-                        <a href="{{ route('loginchoose') }}">Login</a>
+                        <a href="{{ route('loginchoose') }}">Login</a> -->
 
                 <!--        @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif -->
-                    @endauth
+                    <!-- @endauth
             @endif
             </div>
-        </nav>
+        </nav> -->
 <!-- end of navbar -->
 
 <!-- body -->
              <!-- Page Content -->
+@extends('layouts.catalogNavbar')
+
+@section('content')
   <div class="container">
 
 <div class="row">
 
   <div class="col-lg-3">
+    <img src="{{URL::asset('/asset/logo.png')}}" alt="Profile Pic" class="img-thumbnail" height="200" width="200" style="background-color:black;">
+    
+    <h4 class="my-1">Sort by..</h3>
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Vendors
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">Vendors</button>
+    <button class="dropdown-item" type="button">Size</button>
+  </div>
 
-    <h1 class="my-4">Shop Name</h1>
-    <div class="list-group">
-      <a href="#" class="list-group-item">Category 1</a>
-      <a href="#" class="list-group-item">Category 2</a>
-      <a href="#" class="list-group-item">Category 3</a>
-    </div>
-
+</div>
   </div>
   <!-- /.col-lg-3 -->
 
   <div class="col-lg-9">
 
-    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-          <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-
     <div class="row">
-
+    
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -246,14 +227,12 @@
 
 </div>
 <!-- /.container -->
-
-
-
-        </div>
+ </div>
+ @endsection
 <!-- end of body -->
-<script type="text/javascript" src="{{ asset('/js/firstpagebootstrap.js')}}"></script>
+<!-- <script type="text/javascript" src="{{ asset('/js/firstpagebootstrap.js')}}"></script>
 <script type="text/javascript" src="{{ asset('/js/firstpagejquery.js')}}" ></script>
     </body>
 
     {{-- <script src="js/app.js"></script> --}}
-</html>
+</html> -->

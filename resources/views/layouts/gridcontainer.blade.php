@@ -18,6 +18,32 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+      .flex-center{
+          align-items: center;
+          display: flex;
+          justify-centent: center;
+      }
+      .content{
+          text-align:center;
+      }
+      .grid {
+     display: grid;
+    grid-template-columns: [xl-start] 1fr 1.5rem [md-start] minmax(0, 624px) [md-end] 1.5rem 1fr [xl-end];
+    }
+    .grid * {
+    grid-column: md;
+    }
+    .grid-xl {
+    grid-column: xl;
+    }
+    button{
+        margin : 40px;
+    }
+    .btn{
+        padding: 30px;
+    }
+    </style>
 </head>
 <body>
     <div id="app">
