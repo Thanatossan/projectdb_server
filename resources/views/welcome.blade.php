@@ -100,8 +100,8 @@
 <div class="row">
 
   <div class="col-lg-3">
-
-    <h1 class="my-4">Shop Hub</h1>
+    <img src="{{URL::asset('/asset/logo.png')}}" alt="Profile Pic" class="img-thumbnail" height="200" width="200" style="background-color:black;">
+    
     <h4 class="my-1">Sort by..</h3>
     <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
