@@ -28,12 +28,7 @@ class AdminController extends Controller
     public function index()
     {
         $emp_num = auth()->user()->employeeNumber;
-
-        $employee = DB::table('employees')
-        ->join('admins','employees.employeeNumber','=','admins.employeeNumber')
-        ->where('employees.employeeNumber','=',$emp_num)
-        ->get();
-
+        $employee = Employee::where('employees.employeeNumber','=',$emp_num)->get();
         return view('admin')->with('employees',$employee);
     }
 }

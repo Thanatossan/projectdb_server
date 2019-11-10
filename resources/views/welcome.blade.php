@@ -72,7 +72,7 @@
     <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container"> 
-            <a class="navbar-brand" href="{{ url('/') }}"> Navbar logo</a>
+            <a class="navbar-brand" href="{{ url('/') }}"> <img src="pic_trulli.jpg"></a>
             
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -80,6 +80,7 @@
                         <a href="{{ url('/customer') }}">Profile</a>
                     @else
                         <a href="{{ route('loginchoose') }}">Login</a>
+                        <a href="{{ route('register') }}">Register</a>
 
                 <!--        @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>

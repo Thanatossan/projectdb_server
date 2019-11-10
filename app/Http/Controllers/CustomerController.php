@@ -13,10 +13,11 @@ class CustomerController extends Controller
         $id = auth()->user()->id;
         // $user = DB::table('users')->get();
 
-        $customer = DB::table('customers')
-        ->where('user_id','=',$id)
-        ->get();
+        // $customer = DB::table('customers')
+        // ->where('user_id','=',$id)
+        // ->get();
 
+        $customer = Customer::where('user_id','=',$id)->get();
         return view('customer')->with('customers',$customer);
     }
 
