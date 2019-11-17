@@ -26,6 +26,7 @@
                         <h5> Name : {{$employee->firstName}}  {{$employee->lastName}} </h5>
                         <h5> Email: {{$employee->email}}</h5>
                         <h5> Job Title: {{$employee->jobTitle}}</h5>
+                        <a href="{{ route('register') }}">Register</a>
                         </div>
                         </div>
                     </div>
