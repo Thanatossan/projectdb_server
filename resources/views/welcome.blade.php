@@ -1,238 +1,195 @@
-<!-- <!DOCTYPE html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title> -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{{ url('/css/fontpage.css') }}" />
-        
-        <script type="text/javascript" src="{{ asset('/js/firstpagebootstrap.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('/js/firstpagejquery.js')}}" ></script> -->
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Styles -->
-        <!-- <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+  <title>{{ config('app.name', 'Laravel') }}</title>
 
-            .full-height {
-                height: 100vh;
-            }
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+    .grid-item {
+      width: 25%;
+      padding: 10px;
+      margin: 10px;
+      color: white;
+      background: teal;
+    }
 
-            .position-ref {
-                position: relative;
-            }
+    .vendor {
+      background: teal;
+    }
+  </style>
+</head>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+<body>
+  <div id="app">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <!-- <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="{{URL::asset('/asset/logo.png')}}" alt="Profile Pic" height="50" width="50" style="background-color:black;">
+                </a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-            .content {
-                text-align: center;
-            }
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Left Side Of Navbar -->
+          <ul class="navbar-nav mr-auto">
 
-            .title {
-                font-size: 84px;
-            }
+          </ul>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-            
-        </style> -->
-    <!-- </head>
-    <body> -->
-    <!-- navbar -->
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container"> 
-            <a class="navbar-brand" href="{{ url('/') }}"> Navbar logo</a>
-            
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/customer') }}">Profile</a>
-                    @else
-                        <a href="{{ route('loginchoose') }}">Login</a> -->
-
-                <!--        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif -->
-                    <!-- @endauth
+          <!-- Right Side Of Navbar -->
+          <ul class="navbar-nav ml-auto">
+            <!-- Authentication Links -->
+            @guest
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('loginchoose') }}">{{ __('Login') }}</a>
+            </li>
+            @if (Route::has('register'))
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            </li>
             @endif
+            @else
+            <li class="nav-item dropdown">
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }} <span class="caret"></span>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </div>
+            </li>
+            @endguest
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+          <img src="{{URL::asset('/asset/logo.png')}}" alt="Profile Pic" class="img-thumbnail" height="200" width="200"
+            style="background-color:black;">
+          <div class="sort">
+            <h1>Sort by</h1>
+            <div class="button-group sort-by-button-group">
+              <button class="btn btn-primary button is-checked" data-sort-value="name">Vendors</button>
+              <button class="btn btn-info active" data-sort-value="number">Size</button>
             </div>
-        </nav> -->
-<!-- end of navbar -->
-
-<!-- body -->
-             <!-- Page Content -->
-@extends('layouts.catalogNavbar')
-
-@section('content')
-  <div class="container">
-
-<div class="row">
-
-  <div class="col-lg-3">
-    <img src="{{URL::asset('/asset/logo.png')}}" alt="Profile Pic" class="img-thumbnail" height="200" width="200" style="background-color:black;">
-    
-    <h4 class="my-1">Sort by..</h3>
-    <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Vendors
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button">Vendors</button>
-    <button class="dropdown-item" type="button">Size</button>
-  </div>
-
-</div>
-  </div>
-  <!-- /.col-lg-3 -->
-
-  <div class="col-lg-9">
-
-    <div class="row">
-    
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Item One</a>
-            </h4>
-            <h5>$24.99</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
           </div>
         </div>
-      </div>
+        <!-- /.col-lg-3 -->
 
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Item Two</a>
-            </h4>
-            <h5>$24.99</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+        <div class="col-lg-9">
+          <div class="grid">
+            <div class="grid-item">
+              <p class="name">S</p>
+              <p class="number">1:11</p>
+            </div>
+            <div class="grid-item">
+              <p class="name">A</p>
+              <p class="number">1:18</p>
+            </div>
+            <div class="grid-item">
+              <p class="name">L</p>
+              <p class="number">1:10</p>
+            </div>
+            <div class="grid-item">
+              <p class="name">K</p>
+              <p class="number">1:6</p>
+            </div>
+            <div class="grid-item">
+              <p class="name">P</p>
+              <p class="number">1:7</p>
+            </div>
+            <div class="grid-item">
+              <p class="name">B</p>
+              <p class="number">1:10</p>
+            </div>
+            <div class="grid-item">
+              <p class="name">D</p>
+              <p class="number">1:14</p>
+            </div>
+            <div class="grid-item">
+              <p class="name">C</p>
+              <p class="number">1:2</p>
+            </div>
           </div>
         </div>
-      </div>
+        <!-- /.grid -->
 
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Item Three</a>
-            </h4>
-            <h5>$24.99</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Item Four</a>
-            </h4>
-            <h5>$24.99</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Item Five</a>
-            </h4>
-            <h5>$24.99</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Item Six</a>
-            </h4>
-            <h5>$24.99</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <!-- /.row -->
-
-  </div>
+        {{--</div>
   <!-- /.col-lg-9 -->
 
-</div>
-<!-- /.row -->
+  </div>
+  <!-- /.row -->
 
-</div>
-<!-- /.container -->
- </div>
- @endsection
-<!-- end of body -->
-<!-- <script type="text/javascript" src="{{ asset('/js/firstpagebootstrap.js')}}"></script>
-<script type="text/javascript" src="{{ asset('/js/firstpagejquery.js')}}" ></script>
-    </body>
+  </div>
+  <!-- /.container -->
+  </div>
+  </main> --}}
+      </div>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+      </script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous">
+      </script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+      </script>
+      <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+      <script>
+        var $grid = $('.grid').isotope({
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows',
+        getSortData: {
+          name:'.name',
+          number: function( itemElem ) {
+          var number = $( itemElem ).find('.number').text();
+          return parseInt( number.replace(number,function(x) {
+            return x.substring(2);
+          } ) );
+      }
+        }
+      });
+      // bind sort button click
+$('.sort-by-button-group').on( 'click', 'button', function() {
+  var sortValue = $(this).attr('data-sort-value');
+  $grid.isotope({ sortBy: sortValue });
+});
 
-    {{-- <script src="js/app.js"></script> --}}
-</html> -->
+
+
+      
+      </script>
+
+</body>
+
+</html>
