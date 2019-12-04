@@ -28,3 +28,7 @@ Route::prefix('admin')->group(function(){
     });
     
 Route::get('/customer', 'CustomerController@index');
+Route::get('/customer/total','totalController@index');
+Route::get('/customer/status','statusController@index');
+Route::get('/manage','manageController@index');
+Route::get('/detail','detailController@index');
