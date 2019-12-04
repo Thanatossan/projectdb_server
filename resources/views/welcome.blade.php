@@ -109,53 +109,60 @@
               <button class="btn btn-primary button is-checked" data-sort-value="name">Vendors</button>
               <button class="btn btn-info active" data-sort-value="number">Size</button>
             </div>
-            <h1> Vendors </h1>
-            <select class="filters-select" data-filter-group="vendor">
-              <option value="*">show all </option>
-              <option value="Aut">Autoart Studio Design</option>
-              <option value="Car">Carousel DieCast Legends</option>
-              <option value="Cla">
-                Classic Metal Creations</option>
-              <option value="Exo">Exoto Designs</option>
-              <option value="Gea">Gearbox Collectibles</option>
-              <option value="Hig">
-                Highway 66 Mini Classics</option>
-              <option value="Min">Min Lin Diecast</option>
-              <option value="Mot">
-                Motor City Art Classics</option>
-              <option value="Red">
-                Red Start Diecast</option>
-              <option value="Sec">Second Gear Diecast</option>
-              <option value="Stu">
-                Studio M Art Models</option>
-              <option value="Uni">
-                Unimax Art Galleries</option>
-              <option value="Wel">
-                Welly Diecast Productions</option>
-            </select>
-            <br>
-            <h1> Scale </h1>
-            <select class="filters-select" data-filter-group="scale">
-              <option value="*">show all </option>
-              <option value="Scale10">1:10</option>
-              <option value="Scale12">1:12</option>
-              <option value="Scale18">
-                1:18</option>
-              <option value="Scale24">1:24</option>
-              <option value="Scale32">1:32</option>
-              <option value="Scale50">
-                1:50</option>
-              <option value="Scale72">1:72</option>
-              <option value="Scale700">
-                1:700</option>
-            </select>
+            <h1> Fillter </h1>
+            <h3> Vendor</h3>
+            <div class="filters">
+
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle mt-2" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Vendor
+                  <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-filter-group="vendor">
+                  <button class="dropdown-item" data-filter="">any</button>
+                  <button class="dropdown-item" data-filter=".AutoartStudioDesign">Autoart Studio Design</button>
+                  <button class="dropdown-item" data-filter=".CarouselDiecastLegends">Carousel DieCast Legends</button>
+                  <button class="dropdown-item" data-filter=".ClassicMetalCreations">Classic Metal Creations</button>
+                  <button class="dropdown-item" data-filter=".ExotoDesigns">Exoto Designs</button>
+                  <button class="dropdown-item" data-filter=".GearboxCollectibles">Gearbox Collectibles</button>
+                  <button class="dropdown-item" data-filter=".Highway66MiniClassics">Highway 66 Mini Classics</button>
+                  <button class="dropdown-item" data-filter=".MinLinDiecast">Min Lin Diecast</button>
+                  <button class="dropdown-item" data-filter=".MotorCityArtClassics">Motor City Art Classics</button>
+                  <button class="dropdown-item" data-filter=".RedStartDiecast">Red Start Diecast</button>
+                  <button class="dropdown-item" data-filter=".SecondGearDiecast">Second Gear Diecast</button>
+                  <button class="dropdown-item" data-filter=".StudioMArtModels">Studio M Art Models</button>
+                  <button class="dropdown-item" data-filter=".UnimaxArtGalleries">Unimax Art Galleries</button>
+                </div>
+              </div>
+              <h3> Size</h3>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle mt-2" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Size
+                  <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-filter-group="scale">
+                  <button class="dropdown-item" data-filter="">any</button>
+                  <button class="dropdown-item" data-filter=".S10">1:10</button>
+                  <button class="dropdown-item" data-filter=".S12">1:12</button>
+                  <button class="dropdown-item" data-filter=".S18">1:18</button>
+                  <button class="dropdown-item" data-filter=".S24">1:24</button>
+                  <button class="dropdown-item" data-filter=".S32">1:32</button>
+                  <button class="dropdown-item" data-filter=".S50">1:50</button>
+                  <button class="dropdown-item" data-filter=".S72">1:72</button>
+                  <button class="dropdown-item" data-filter=".S700">1:700</button>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
           <div class="grid">
-            <div class="grid-item">
+            <div class="grid-item MinLinDiecast S10 red small">
               <div class="card">
                 <img class="card-img-top" src="{{URL::asset('/asset/logo.png')}}" alt="product pic" height="200"
                   width="100" style="background-color:black">
@@ -170,7 +177,7 @@
                 </div>
               </div>
             </div>
-            <div class="grid-item">
+            <div class="grid-item AutoartStudioDesign S10 red small">
               <div class="card">
                 <img class="card-img-top" src="{{URL::asset('/asset/logo.png')}}" alt="product pic" height="200"
                   width="100" style="background-color:black">
@@ -185,7 +192,7 @@
                 </div>
               </div>
             </div>
-            <div class="grid-item">
+            <div class="grid-item AutoartStudioDesign S10 blue big ">
               <div class="card">
                 <img class="card-img-top" src="{{URL::asset('/asset/logo.png')}}" alt="product pic" height="200"
                   width="100" style="background-color:black">
@@ -201,7 +208,7 @@
                 </div>
               </div>
             </div>
-            <div class="grid-item">
+            <div class="grid-item AutoartStudioDesign S12 blue small">
               <div class="card">
                 <img class="card-img-top" src="{{URL::asset('/asset/logo.png')}}" alt="product pic" height="200"
                   width="100" style="background-color:black">
@@ -299,92 +306,6 @@
           }
         }
       });
-      var filterFns = {
-        Aut: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Autoart Studio Design$/ );
-        },
-        Car: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Carousel DieCast Legends$/ );
-        },
-        Cla: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Classic Metal Creations$/ );
-        },
-        Exo: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Exoto Designs$/ );
-        },
-        Gea: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Gearbox Collectibles$/ );
-        },
-        Hig: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Highway 66 Mini Classics$/ );
-        },
-        Min: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Min Lin Diecast$/ );
-        },
-        Mot: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Motor City Art Classics$/ );
-        },
-        Red: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Red Start Diecast$/ );
-        },
-        Sec: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Second Gear Diecast$/ );
-        },
-        Stu: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Studio M Art Models$/ );
-        },
-        Uni: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Unimax Art Galleries$/ );
-        },
-        Wel: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /Welly Diecast Productions$/ );
-        },
-        Scale10: function() {
-        var number = $(this).find('.number').text();
-        return number.match( /1:10$/ );
-        },
-        Scale12: function() {
-        var number = $(this).find('.number').text();
-        return number.match( /1:12$/ );
-        },
-        Scale18: function() {
-        var number = $(this).find('.number').text();
-        return number.match( /1:18$/ );
-        },
-        Scale24: function() {
-        var number = $(this).find('.number').text();
-        return number.match( /1:24$/ );
-        },
-        Scale32: function() {
-        var number = $(this).find('.number').text();
-        return number.match( /1:32$/ );
-        },
-        Scale50: function() {
-        var number = $(this).find('.number').text();
-        return number.match( /1:50$/ );
-        },
-        Scale72: function() {
-        var number = $(this).find('.number').text();
-        return number.match( /1:72$/ );
-        },
-        Scale700: function() {
-        var number = $(this).find('.number').text();
-        return number.match( /1:700$/ );
-        },
-      };
 
     // store filter for each group
     
@@ -396,18 +317,32 @@
 
     var filters = {};
 
-    $('.filters-select').on('change', function() {
-    // get filter value from option value
-    var filterValue = this.value;
-    // use filterFn if matches value
-    filterValue = filterFns[ filterValue ] || filterValue;
+  $('.filters').on( 'click', '.dropdown-item', function( event ) {
+    var $dropdown = $( event.currentTarget );
+    // get group key
+    var $dropdownMenu = $dropdown.parents('.dropdown-menu');
+    var filterGroup = $dropdownMenu.attr('data-filter-group');
+    // set filter for group
+    filters[ filterGroup ] = $dropdown.attr('data-filter');
+    // combine filters
+    var filterValue = concatValues( filters );
+    // set filter for Isotope
+    console.log(filterValue)
     $grid.isotope({ filter: filterValue });
-    });
-    
-
-    
-
-      
+});
+// flatten object by concatting values
+function concatValues( obj ) {
+  var value = '';
+  for ( var prop in obj ) {
+    value += obj[ prop ];
+  }
+  return value;
+}
+//show selected at dropdown
+$(".dropdown-menu button").click(function(){
+  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+});
       </script>
 
 </body>
