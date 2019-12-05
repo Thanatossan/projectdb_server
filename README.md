@@ -2,7 +2,7 @@
 ส่งวันที่ 9 ไฟไหมชิบหายวายวอด
 
 ## Requirement
-1. ~~[A] The website has products catalog which categorizes by product vendors and product scale. The catalog is displayed publicly. ~~
+1. ~~[A] The website has products catalog which categorizes by product vendors and product scale. The catalog is displayed publicly.~~
 2. ~~[B] Employees can log-in with a unique employee number and password. Any password in the system mustn’t be stored as plaintext.~~
 3. _[C] Employees in the sales department, who have “sale” in their job title can access a stock-in system (ระบบรับสินค้าเข้า), which records date, and amount of product in each lot as well as create, update, and delete products._ -> on going
 4. [D] When customers buy any product will get 3 member points every $100 spent. The system must show the total points they have and how many points get from each order.
