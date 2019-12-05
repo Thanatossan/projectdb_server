@@ -4,8 +4,8 @@
 
 <div class="container">
     <h1>MANAGE CUSTOMER</h1>
-    <table class="table table-striped table-dark table-hover">
-        <thead>
+    <table class="table table-hover">
+        <thead class="thead-dark">
             <tr>
                 <th scope="col"></th>
                 <th scope="col">Customer Name</th>
@@ -20,7 +20,7 @@
                 <td>Atelier graphique</td>
                 <td>Carine Schmitt</td>
                 <td>
-                    <img src="{{URL::asset('/asset/settingWhite_18dp.png')}}">
+                    <img src="{{URL::asset('/asset/settingBlack.png')}}">
                 </td>
             </tr>
             <tr>
@@ -28,7 +28,7 @@
                 <td>Sigmal Gift Stores</td>
                 <td>Jean King</td>
                 <td>
-                    <img src="{{URL::asset('/asset/settingWhite_18dp.png')}}">
+                    <img src="{{URL::asset('/asset/settingBlack.png')}}">
                 </td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
                 <td>Australian Collectors, Co.</td>
                 <td>Peter Ferguson</td>
                 <td>
-                    <img src="{{URL::asset('/asset/settingWhite_18dp.png')}}">
+                    <img src="{{URL::asset('/asset/settingBlack.png')}}">
                 </td>
             </tr>
         </tbody>
