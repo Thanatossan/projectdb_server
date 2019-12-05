@@ -4,19 +4,9 @@
 
 <div class="container">
     <div class="row">
+        <div class="col"><img class="img-thumbnail" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/close-up-of-cat-wearing-sunglasses-while-sitting-royalty-free-image-1571755145.jpg?crop=0.670xw:1.00xh;0.147xw,0&resize=480:*" alt="product">
+        </div>
         <div class="col">
-            <br>
-            <div class="row"><img class="img-thumbnail" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/close-up-of-cat-wearing-sunglasses-while-sitting-royalty-free-image-1571755145.jpg?crop=0.670xw:1.00xh;0.147xw,0&resize=480:*" alt="product"></div>
-            <br>
-            <div class="row"><img class="img-thumbnail" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/close-up-of-cat-wearing-sunglasses-while-sitting-royalty-free-image-1571755145.jpg?crop=0.670xw:1.00xh;0.147xw,0&resize=480:*" alt="product"></div>
-            <br>
-            <div class="row"><img class="img-thumbnail" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/close-up-of-cat-wearing-sunglasses-while-sitting-royalty-free-image-1571755145.jpg?crop=0.670xw:1.00xh;0.147xw,0&resize=480:*" alt="product"></div>
-            <br>
-            <div class="row"><img class="img-thumbnail" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/close-up-of-cat-wearing-sunglasses-while-sitting-royalty-free-image-1571755145.jpg?crop=0.670xw:1.00xh;0.147xw,0&resize=480:*" alt="product"></div>
-        </div>
-        <div class="col-6"><img class="img-thumbnail" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/close-up-of-cat-wearing-sunglasses-while-sitting-royalty-free-image-1571755145.jpg?crop=0.670xw:1.00xh;0.147xw,0&resize=480:*" alt="product">
-        </div>
-        <div class="col-5">
             <h1 style="color:#FF9900">Product Name</h1>
             <br>
             <h3>cost 1234$</h3>
