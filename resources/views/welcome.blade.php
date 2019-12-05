@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+<<<<<<< HEAD
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,6 +61,32 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
+=======
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+            
+        </style>
+    </head>
+    <body>
+    <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container"> 
+            <a class="navbar-brand" href="{{ url('/') }}"> Navbar logo</a>
+            
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/customer') }}">Profile</a>
+                    @else
+                        <a href="{{ route('loginchoose') }}">Login</a>
+                        <a href="{{ route('register') }}">Register</a>
+
+                <!--        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif -->
+                    @endauth
+>>>>>>> 08338434a2ea4b3b0f2e9be4d0d4671a613a3a5e
             @endif
             @else
             <li class="nav-item dropdown">

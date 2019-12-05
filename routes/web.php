@@ -14,6 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/1', function () {
+    return view('customer');
+});
+Route::get('/2', function () {
+    return view('auth.login');
+});
 
 Auth::routes();
 
