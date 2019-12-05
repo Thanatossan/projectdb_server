@@ -10,12 +10,10 @@ use App\Customer;
 class CustomerController extends Controller
 {
     public function index(){
-        $id = auth()->user()->id;
+        //$id = auth()->user()->id;
         // $user = DB::table('users')->get();
 
-        $customer = DB::table('customers')
-        ->where('user_id','=',$id)
-        ->get();
+        $customer = Customer::all();
 
         return view('customer')->with('customers',$customer);
     }
