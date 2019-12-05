@@ -15,7 +15,7 @@ class CustomerController extends Controller
 
         $customer = Customer::all();
 
-        return view('customer')->with('customers',$customer);
+        return view('manage')->with('customers',$customer);
     }
 
     

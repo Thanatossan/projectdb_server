@@ -8,6 +8,8 @@
         <div class="col-8">
             <h2 style="color: #FF9900">ADD CUSTOMER</h2>
             <form>
+                <label for="">Customer Number</label>
+                <input type="text" class="form-control" placeholder="Enter customer num">
                 <label>First Name</label>
                 <input type="text" class="form-control" placeholder="Enter first name">
                 <label>Last Name</label>
@@ -42,7 +44,7 @@
             <br>
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <button type="button" class="btn btn-md btn-block" style="background-color: #FF9900" href="">Submit</button>
+                    <button type="button" class="btn btn-md btn-block" style="background-color: #FF9900" >Submit</button>
                 </div>
             </div>
         </div>

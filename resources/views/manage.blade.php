@@ -7,39 +7,28 @@
     <table class="table table-hover">
         <thead class="thead-dark">
             <tr>
-                <th scope="col"></th>
-                <th scope="col">Customer Name</th>
-                <th scope="col">EMPLOYEE NAME</th>
+                <th scope="col">CUSTOMER NUMBER</th>
+                <th scope="col">CUSTOMER NAME</th>
+                <th scope="col" colspan="2">CONTACT NAME</th>
+                <th scope="col">PHONE NUMBER</th>
                 <th scope="col"></th>
 
             </tr>
         </thead>
+        @foreach ($customers as $customer)
         <tbody>
             <tr>
-                <th scope="row">1</th>
-                <td>Atelier graphique</td>
-                <td>Carine Schmitt</td>
+                <td>{{ $customer->customerNumber}}</td>
+                <td>{{ $customer->customerName }}</td>
+                <td>{{ $customer->contactFirstName}}</td>
+                <td>{{ $customer->contactLastName}}</td>
+                <td>{{ $customer->phone}}</td>
                 <td>
-                    <img src="{{URL::asset('/asset/settingBlack.png')}}">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Sigmal Gift Stores</td>
-                <td>Jean King</td>
-                <td>
-                    <img src="{{URL::asset('/asset/settingBlack.png')}}">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Australian Collectors, Co.</td>
-                <td>Peter Ferguson</td>
-                <td>
-                    <img src="{{URL::asset('/asset/settingBlack.png')}}">
+                <button type="button" class="btn btn-danger" >Delete</button>
                 </td>
             </tr>
         </tbody>
+        @endforeach
     </table>
 
 </div>

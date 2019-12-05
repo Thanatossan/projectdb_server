@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Routing\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -36,6 +38,9 @@ Route::prefix('admin')->group(function(){
 Route::get('/customer', 'CustomerController@index');
 Route::get('/customer/total','totalController@index');
 Route::get('/status','statusController@index');
-Route::get('/manage','manageController@index');
+Route::get('/manage','CustomerController@index');
 Route::get('/detail','detailController@index');
 Route::get('/addcustomer','addcustomerController@index');
+
+//insert data
+// Route::get('insert','addcutomerControllerg')
