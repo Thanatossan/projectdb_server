@@ -44,7 +44,7 @@ class AdminLoginController extends Controller
 
 
         if (Auth::guard('admin')->attempt(['employeeNumber' => $request->employeeNumber, 'password' => $request->password], $request->remember)){
-            return redirect()->intended(route('admin.dashboard'));
+            return redirect()->intended(route('admin.login'));
         }
 
         return redirect()->back()->withInput($request->only('employeeNumber', 'remrmber'));

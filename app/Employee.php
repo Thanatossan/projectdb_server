@@ -10,4 +10,10 @@ class Employee extends Model
     protected $table = 'employees';
 
     public $primaryKey = 'employeeNumber';
+    
+    public function sales(){
+        $check_str = strstr($this->jobTitle, "Sale");
+        $Sales = substr($check_str,0,4);
+        return $Sales;
+    }
 }

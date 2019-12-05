@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Employee;
+use App\Products;
 
 class AdminController extends Controller
 {
@@ -29,6 +30,7 @@ class AdminController extends Controller
     {
         $emp_num = auth()->user()->employeeNumber;
         $employee = Employee::where('employees.employeeNumber','=',$emp_num)->get();
-        return view('admin')->with('employees',$employee);
+        $product= Products::all();
+        return view('admin')->with('employees',$employee)->with('products',$product);
     }
 }
