@@ -99,7 +99,7 @@
 
   <div class="col-lg-3">
 
-    <h1 class="my-4">Shop Name</h1>
+    <h1 class="my-4">Hello Shop</h1>
     <div class="list-group">
       <a href="#" class="list-group-item">Category 1</a>
       <a href="#" class="list-group-item">Category 2</a>
@@ -148,7 +148,7 @@
               <a href="#">Item One</a>
             </h4>
             <h5>$24.99</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore sunt laboriosam, odit ea vel animi eum quia modi harum officiis minima ipsam quod ullam corrupti fuga consequuntur libero inventore unde?</p>
           </div>
           <div class="card-footer">
             <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

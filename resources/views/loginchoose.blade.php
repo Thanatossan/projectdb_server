@@ -66,6 +66,7 @@
          <br><br><br>
     <button type="button" class="btn btn-primary btn-lg btn-outline-dark btn-warning" onclick = "window.location='{{ url('/login') }}'">Employee</button>
     <button type="button" class="btn btn-primary btn-lg btn-outline-dark btn-warning" onclick = "window.location='{{ url('/admin/login') }}'"> Customer</button>
+    </button>
     </div>
 </body>
 </html>
