@@ -29,3 +29,4 @@ Route::prefix('admin')->group(function(){
     
 Route::get('/customer', 'CustomerController@index');
 Route::get('/', 'ProductsController@index');
+Route::get('/status', 'OrdersController@index');
