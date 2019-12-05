@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Products;
 
-class product_detail extends Controller
+class shopController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,8 @@ class product_detail extends Controller
      */
     public function index()
     {
-        //
+        $products = Products::all();
+        return view('welcome')-> with('products',$products);
     }
 
     /**
@@ -43,9 +47,9 @@ class product_detail extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show() //$id
     {
-        //
+        return view('product');
     }
 
     /**

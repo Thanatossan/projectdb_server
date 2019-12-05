@@ -15,10 +15,13 @@
     text-align: end
   }
 
-
   img {
     display: block;
 
+  }
+
+  .name {
+    font-size: 13px;
   }
 </style>
 @endsection
@@ -36,6 +39,8 @@
         <h1>Sort by</h1>
         <div class="button-group sort-by-button-group">
           <button class="btn btn-info active" data-sort-value="number">Size</button>
+          <button class="btn btn-info active" data-sort-value="name">Vendor</button>
+          <button class="btn btn-info active" data-sort-value="random">random</button>
         </div>
         <h1> Fillter </h1>
         <h3> Vendor</h3>
@@ -50,7 +55,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-filter-group="vendor">
               <button class="dropdown-item" data-filter="">any</button>
               <button class="dropdown-item" data-filter=".AutoartStudioDesign">Autoart Studio Design</button>
-              <button class="dropdown-item" data-filter=".CarouselDiecastLegends">Carousel DieCast Legends</button>
+              <button class="dropdown-item" data-filter=".CarouselDieCastLegends">Carousel DieCast Legends</button>
               <button class="dropdown-item" data-filter=".ClassicMetalCreations">Classic Metal Creations</button>
               <button class="dropdown-item" data-filter=".ExotoDesigns">Exoto Designs</button>
               <button class="dropdown-item" data-filter=".GearboxCollectibles">Gearbox Collectibles</button>
@@ -90,50 +95,38 @@
 
     <div class="col-lg-9">
       <div class="grid">
-        {{-- @foreach ($products as $product)
-            <div class="grid-item MinLinDiecast S10">
-              <div class="card">
-                <img class="card-img-top" src="{{URL::asset('/asset/logo.png')}}" alt="product pic" height="200"
-        width="100" style="background-color:black">
-        <div class="card-body">
-          <p> {{$product->productName}}</p>
-          <p class="name">{{ $product->productvendor}}</p>
-          <p class="number"> {{$product->productScale}}</p>
-          <p style="text-align:center"> {{$product->buyPrice}}</p>
-          <a href="#" class="btn btn-light btn-block btn btn-outline-dark">
-            add to cart
-          </a>
+        @foreach ($products as $product)
+        <div class="grid-item {{$product->vendorName()}} {{$product->scale()}} S10">
+          <div class="card">
+            <img class="card-img-top" src="{{URL::asset('/asset/logo.png')}}" alt="product pic" height="200" width="100"
+              style="background-color:black">
+            <div class="card-body">
+              <p> {{$product->productName}}</p>
+              <p class="name">{{ $product->productVendor}}</p>
+              <p class="number">{{$product->productScale}}</p>
+              <p style="text-align:center"> {{$product->money()}}</p>
+              <a href="{{ route('shop.detail') }}" class="btn btn-light btn-block btn btn-outline-dark">
+                add to cart
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    @endforeach --}}
-    <div class="grid-item MinLinDiecast S10">
-      <div class="card">
-        <img class="card-img-top" src="{{URL::asset('/asset/logo.png')}}" alt="product pic" height="200" width="100"
-          style="background-color:black">
-        <div class="card-body">
-          <p class="name" style="font-size: 10px;"">Min Lin Diecast</p>
-          <p style=" text-align:center;font-size: 15px;"> 1969 Harley Davidson Ultimate Chopper</p>
-          <p class="number" style="text-align:center;font-size: 13px;">1:10</p>
+        @endforeach
 
-          <p> $ 10</p>
-          <a href=" #" class="btn btn-light btn-block btn btn-outline-dark">
-            add to cart
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-@endsection
-@section('js')
-<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-<script>
-  var $grid = $('.grid').isotope({
+        @endsection
+        @section('js')
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+        <script>
+          var $grid = $('.grid').isotope({
         itemSelector: '.grid-item',
         layoutMode: 'fitRows',
         getSortData: {
+          name: function(itemElem){
+            var name =$(itemElem).find('.name').text();
+            return name.replace(name,function(x){
+              return x
+            });
+          },
           number: function( itemElem ) {
           var number = $( itemElem ).find('.number').text();
           return parseInt( number.replace(number,function(x) {
@@ -179,5 +172,5 @@ $(".dropdown-menu button").click(function(){
   $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
   $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
 });
-</script>
-@endsection
+        </script>
+        @endsection
