@@ -14,11 +14,3 @@
 10. [K] Promotion: Discount code (คูปองส่วนลด) VP marketing can create a discount code as well as a discount amount is, how many times the code can use, and expiry date. For example, a code “XMAS19” will discount $10 from a total amount, can be used 1,000 times, and will expire after December 26, 2019. The code will use in the ordering process by employees. Then the customers will get a discount that subtracts from the total amount.
 11. [M] Multiple customer addresses.Employees can add, edit, remove customers' addresses. However, each customer must have at least one address as a primary address.Those addresses are selectable in a check out page as shipping address and billing address.
 Even addresses are deleted by users, must be shown in the shipped orders as history (keyword: soft-delete).
-
-## Todo list
-1. Shop Path
-    * B->A->D->G->H
-2. Employee Path
-    * B->C
-    * B->F->E
-    * B->I
