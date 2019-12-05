@@ -44,12 +44,13 @@ class shopController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show() //$id
+    public function show($productCode)
     {
-        return view('product');
+        $product =products::where('productCode','=',$productCode)->get();
+        return view('product')->with('products',$product);
     }
 
     /**

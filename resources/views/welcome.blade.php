@@ -96,7 +96,7 @@
     <div class="col-lg-9">
       <div class="grid">
         @foreach ($products as $product)
-        <div class="grid-item {{$product->vendorName()}} {{$product->scale()}} S10">
+        <div class="grid-item {{$product->vendorName()}} {{$product->scale()}}">
           <div class="card">
             <img class="card-img-top" src="{{URL::asset('/asset/logo.png')}}" alt="product pic" height="200" width="100"
               style="background-color:black">
@@ -105,7 +105,8 @@
               <p class="name">{{ $product->productVendor}}</p>
               <p class="number">{{$product->productScale}}</p>
               <p style="text-align:center"> {{$product->money()}}</p>
-              <a href="{{ route('shop.detail') }}" class="btn btn-light btn-block btn btn-outline-dark">
+              <a href="{{ route('shop.show',$product -> productCode) }}"
+                class="btn btn-light btn-block btn btn-outline-dark">
                 add to cart
               </a>
             </div>
