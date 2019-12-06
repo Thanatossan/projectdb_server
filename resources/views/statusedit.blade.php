@@ -1,31 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="container">
-    <h1>CUSTOMER STATUS</h1>
-    {{-- href="{{ route('addstatus') }}" --}}
-    <div  style="text-align:right;" > <a class="btn btn-success"> Add New Order </a></div><br>
-    <table class="table table-hover">
-        <thead class="thead-dark">
+    <div>
+        <table>
             <tr>
-                <th scope="col" style="text-align:center;">Order Number</th>
-                <th scope="col" style="text-align:center;">Customer Number</th>
-                <th scope="col" style="text-align:center;">Customer Name</th>
-                <th scope="col" style="text-align:center;">Shipped Date</th>
-                <th scope="col" style="text-align:center;">Status</th>
-                <th scope="col" style="text-align:center;">Comments</th>
-                <th scope="col" style="text-align:center;"></th>
-            </tr>
-        </thead>
-        <tbody>
-
-            {{-- @foreach ($customers as $customer)
-                {{$customer->customerNumber}}
-            @endforeach --}}
-
-            @foreach ($orders as $order)
-                <tr>
                     <td style="text-align:center;"> {{$order->orderNumber}} </td>
                     <td style="text-align:center;"> {{$order->customerNumber}} </td>
                     <td style="text-align:center;"> 
@@ -49,14 +27,7 @@
                         </form>  
                     </td>
                     <td style="text-align:center;"><textarea name="comments" id="" cols="30" rows="3">{{$order->comments}}</textarea></td>
-                    <td style="text-align:center;">Edit</td>
-                </tr>
-            @endforeach
-
-
-        </tbody>
-    </table>
-    
-</div>
-
+            </tr>
+        </table>
+    </div>
 @endsection
