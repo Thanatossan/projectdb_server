@@ -29,4 +29,6 @@ Route::prefix('admin')->group(function(){
     
 Route::get('/customer', 'CustomerController@index');
 //Route::get('/status', 'OrdersController@index');
-Route::resource('addstatus','OrdersController');
+Route::resource('status','OrdersController');
+Route::resource('payments','PaymentsController');
+Route::post('/payments', 'PaymentsController@insert');
