@@ -11,6 +11,9 @@
 |
 */
 
+// use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/','shopController@index') -> name('shop.index');
 Route::get('/shop/{product}','shopController@show')->name('shop.show');
 
@@ -27,3 +30,6 @@ Route::prefix('admin')->group(function(){
     
 Route::get('/customer', 'CustomerController@index');
 Route::get('/', 'ProductsController@index');
+
+// Route::get('/admin','AdminController@index');
+Route::post('/admin','AdminController@insert');

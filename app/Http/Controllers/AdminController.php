@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 // use App\Http\Controllers\AdminController;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
+// use Illuminate\Support\Facades\DB;
+// use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Employee;
 use App\Products;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controllers as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use DB;
+
 
 class AdminController extends Controller
 {
@@ -33,4 +39,23 @@ class AdminController extends Controller
         $product= Products::all();
         return view('admin')->with('employees',$employee)->with('products',$product);
     }
+
+    public function insert(Request $req)
+    {
+        $productCode = $req->input('productCode',false);
+        $productName = $req->input('productName',false);
+        $productLine = $req->input('productLine',false);
+        $productScale = $req->input('productScale',false);
+        $quantityInStock = $req->input('quantityInStock',false);
+        $buyPrice = $req->input('buyPrice',false);
+
+        $productVendor = $req->input('productVendor',false);
+        $productDescription = $req->input('productDescription',false);
+        $MSRP = $req->input('MSRP',false);
+       
+        $data = array('productCode'=>$productCode,"productName"=>$productName,"productLine"=>$productLine,"productScale"=>$productScale,"quantityInStock"=>$quantityInStock,"buyPrice"=>$buyPrice,"productVendor"=>$productVendor,"productDescription"=>$productDescription,"MSRP"=>$MSRP);
+
+        DB::table('products')->insert($data);
+        // return view('admin');
+     }
 }
