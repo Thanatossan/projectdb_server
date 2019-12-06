@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Address;
 
 class loginchoose extends Controller
 {
@@ -84,6 +85,7 @@ class loginchoose extends Controller
 
     public function address()
     {
-        return view('addressManage');
+        $addresses = Address::all();
+        return view('addressManage')->with('addresses',$addresses);
     }
 }
