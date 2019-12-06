@@ -16,4 +16,8 @@ class Employee extends Model
         $Sales = substr($check_str,0,4);
         return $Sales;
     }
+    public function Manager(){
+        $manager = substr($this->jobTitle,0,13);
+        return $manager;
+    }
 }

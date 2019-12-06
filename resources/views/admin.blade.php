@@ -28,11 +28,16 @@
                                 <h5> Email: {{$employee->email}}</h5>
                                 <h5> Job Title: {{$employee->jobTitle}}</h5>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+            @if($employee->Manager() === "Sales Manager" || $employee->jobTitle ==="VP Sales")
+            <a href="{{route('admin.erm',$employee->employeeNumber) }}"> go to ERM </a>
+            @endif
             @if($employee->sales() === "Sale")
+
             <br><br>
             <div class="container">
                 <h1>MANAGE Product</h1>

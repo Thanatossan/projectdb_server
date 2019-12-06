@@ -33,4 +33,10 @@ class AdminController extends Controller
         $product= Products::all();
         return view('admin')->with('employees',$employee)->with('products',$product);
     }
+    public function erm($employee_num)
+    {
+        $login_employee = employee::where('employees.employeeNumber','=',$employee_num)->get();
+        $employee= employee::where('employees.reportsTo','=',$employee_num)->get();
+        return view('erm')->with('login_employee',$login_employee)->with('employees',$employee);
+    }
 }
