@@ -11,8 +11,7 @@
 |
 */
 
-use Illuminate\Routing\Route;
-
+// use Illuminate\Routing\Route;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -43,4 +42,4 @@ Route::get('/detail','detailController@index');
 Route::get('/addcustomer','addcustomerController@index');
 
 //insert data
-// Route::get('insert','addcutomerControllerg')
+Route::post('/addcustomer','addcustomerController@insert');
