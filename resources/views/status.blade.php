@@ -5,7 +5,7 @@
 <div class="container">
     <h1>CUSTOMER STATUS</h1>
     {{-- href="{{ route('addstatus') }}" --}}
-    <div  style="text-align:right;" > <a class="btn btn-success"> Add New Order </a></div><br>
+    <div  style="text-align:right;" > <a href="/addstatus"><button type="submit" class="btn btn-lg" style="background-color: #FF9900">Add New Order </button> </a></div><br>
     <table class="table table-hover">
         <thead class="thead-dark">
             <tr>
@@ -26,17 +26,17 @@
 
             @foreach ($orders as $order)
                 <tr>
-                    <td style="text-align:center;"> {{$order->orderNumber}} </td>
-                    <td style="text-align:center;"> {{$order->customerNumber}} </td>
-                    <td style="text-align:center;"> 
+                    <td style="text-align:center;" width="10%"> {{$order->orderNumber}} </td>
+                    <td style="text-align:center;" width="10%"> {{$order->customerNumber}} </td>
+                    <td style="text-align:center;" width="30%"> 
                         @foreach ($customers as $customer)
                             @if($customer->customerNumber === $order->customerNumber)
                                 {{$customer->customerName}}
                             @endif    
                         @endforeach
                     </td>
-                    <td style="text-align:center;"> <input type="date" value="{{$order->shippedDate}}"></td>
-                    <td style="text-align:center;"><form>
+                    <td style="text-align:center;" width="10%"> {{$order->shippedDate}}</td>
+                    <td style="text-align:center;" width="10%"><form>
                             <select name="status">
                                 <option value="default">{{$order->status}}</option>
                                 <option value="cancelled">Cancelled</option>
@@ -48,7 +48,7 @@
                             </select>
                         </form>  
                     </td>
-                    <td style="text-align:center;"><textarea name="comments" id="" cols="30" rows="3">{{$order->comments}}</textarea></td>
+                    <td style="text-align:center;" width="30%">{{$order->comments}}</td>
                     <td style="text-align:center;">Edit</td>
                 </tr>
             @endforeach
