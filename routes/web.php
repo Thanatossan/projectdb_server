@@ -29,7 +29,8 @@ Route::prefix('admin')->group(function(){
     });
     
 Route::get('/customer', 'CustomerController@index');
-Route::get('/', 'ProductsController@index');
+Route::get('/coupons','CouponsController@index');
 
-// Route::get('/admin','AdminController@index');
+//insert
 Route::post('/admin','AdminController@insert');
+Route::post('/coupons','CouponsController@insert');

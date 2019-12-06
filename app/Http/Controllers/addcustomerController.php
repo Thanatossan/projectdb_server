@@ -49,6 +49,6 @@ class addcustomerController extends Controller
 
         DB::table('customers')->insert($data);
 
-        return view('addcustomer');
+        // return view('addcustomer');
      }
 }

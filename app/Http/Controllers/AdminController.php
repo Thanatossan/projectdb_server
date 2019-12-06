@@ -35,27 +35,27 @@ class AdminController extends Controller
     public function index()
     {
         $emp_num = auth()->user()->employeeNumber;
-        $employee = Employee::where('employees.employeeNumber','=',$emp_num)->get();
-        $product= Products::all();
-        return view('admin')->with('employees',$employee)->with('products',$product);
+        $employee = Employee::where('employees.employeeNumber', '=', $emp_num)->get();
+        $product = Products::all();
+        return view('admin')->with('employees', $employee)->with('products', $product);
     }
 
     public function insert(Request $req)
     {
-        $productCode = $req->input('productCode',false);
-        $productName = $req->input('productName',false);
-        $productLine = $req->input('productLine',false);
-        $productScale = $req->input('productScale',false);
-        $quantityInStock = $req->input('quantityInStock',false);
-        $buyPrice = $req->input('buyPrice',false);
+        $productCode = $req->input('productCode', false);
+        $productName = $req->input('productName', false);
+        $productLine = $req->input('productLine', false);
+        $productScale = $req->input('productScale', false);
+        $quantityInStock = $req->input('quantityInStock', false);
+        $buyPrice = $req->input('buyPrice', false);
 
-        $productVendor = $req->input('productVendor',false);
-        $productDescription = $req->input('productDescription',false);
-        $MSRP = $req->input('MSRP',false);
-       
-        $data = array('productCode'=>$productCode,"productName"=>$productName,"productLine"=>$productLine,"productScale"=>$productScale,"quantityInStock"=>$quantityInStock,"buyPrice"=>$buyPrice,"productVendor"=>$productVendor,"productDescription"=>$productDescription,"MSRP"=>$MSRP);
+        $productVendor = $req->input('productVendor', false);
+        $productDescription = $req->input('productDescription', false);
+        $MSRP = $req->input('MSRP', false);
+
+        $data = array('productCode' => $productCode, "productName" => $productName, "productLine" => $productLine, "productScale" => $productScale, "quantityInStock" => $quantityInStock, "buyPrice" => $buyPrice, "productVendor" => $productVendor, "productDescription" => $productDescription, "MSRP" => $MSRP);
 
         DB::table('products')->insert($data);
         // return view('admin');
-     }
+    }
 }
