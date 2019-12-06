@@ -81,4 +81,9 @@ class loginchoose extends Controller
     {
         //
     }
+
+    public function address()
+    {
+        return view('addressManage');
+    }
 }
