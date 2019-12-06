@@ -41,6 +41,10 @@
                     <div class="form-row align-items-center">
                         <div class="col-sm-5 my-1 mr-3">
                             <label class="sr-only" for="inlineFormInputName">Name</label>
+                            <input type="text" class="form-control" id="inlineFormInputName" placeholder="Product Code">
+                        </div>
+                        <div class="col-sm-5 my-1 mr-3">
+                            <label class="sr-only" for="inlineFormInputName">Name</label>
                             <input type="text" class="form-control" id="inlineFormInputName" placeholder="Product Name">
                         </div>
                         <div class="col-sm-3 my-1 mr-3">
