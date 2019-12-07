@@ -31,18 +31,49 @@ class OrdersController extends Controller
 
     public function update(Request $req, $orderNumber){
 
-        $this->validate($req, [
-            'shippedDate'   => 'required',
-            'status'        => 'required',
-            'comments'      => 'required' 
-        ]);
+        // $this->validate($req, [
+        //     'shippedDate'   => 'required',
+        //     'status'        => 'required',
+        //     'comments'      => 'required' 
+        // ]);
 
         $orders = Orders::where('orders.orderNumber','=',$orderNumber)->get();
-        $orders->shippedDate = $req->get('shippedDate');
-        $orders->status = $req->get('status');
-        $orders->comments = $req->get('comments');
+        $shippedDate = $req->input('shippedDate');
+        $status = $req->input('status');
+        $comments = $req->input('comments');
 
-        $orders->save();
-        return view('status')->with('success', 'Data Update')->with('orders',$orders);
+        $data = array('shippedDate'=>$shippedDate,'status'=>$status,'comments'=>$comments);
+
+        /*
+            $customerNumber = $req->input('customerNumber');
+        $checkNumber = $req->input('checkNumber');
+        $paymentDate = $req->input('paymentDate');
+        $amount = $req->input('amount');
+        
+        $data = array('customerNumber'=>$customerNumber,"checkNumber"=>$checkNumber,"paymentDate"=>$paymentDate,"amount"=>$amount);
+        */
+        Orders::insert($data);
+        return redirect('status');
+    }
+
+    public function insert(Request $req){
+        $orderNumber = Orders::max('orderNumber')+1;
+        // $orderDate
+        // $requiredDate
+        $customerName = $req->input('customerName');
+        $shippedDate = $req->input('shippedDate');
+        $status = "in-process";
+        $comments = $req->input('comments');
+        $customerNumber = Customer::where('customers.customerName','=',$customerName)->max('customerNumber');
+        // return $customerNumber = Customer::pluck('customerNumber');
+
+        
+        
+        $data = array('orderNumber'=>$orderNumber,'orderDate'=>$shippedDate,'requiredDate'=>$shippedDate,
+        'shippedDate'=>$shippedDate,"status"=>$status,"comments"=>$comments,'customerNumber'=>$customerNumber,'customerNumber'=>$customerNumber);
+        Orders::insert($data);
+
+        return view('payments',$data);
+        // return $data;
     }
 }

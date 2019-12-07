@@ -9,10 +9,10 @@
             <h2 style="color: #FF9900">PAYMENTS</h2>
             <form action="/payments" method="POST">
             @csrf
-                <label for="">Customer Number</label>
-                <input type="integer" name="customerNumber" class="form-control" placeholder="Enter customer number">
+                <label for="">Customer Number </label>
+                <input type="integer" name="customerNumber" class="form-control" value="{{$customerNumber}}">
                 <label>Check Number</label>
-                <input type="text" name="checkName" class="form-control" aria-describedby="emailHelp" placeholder="Enter check number">
+                <input type="text" name="checkNumber" class="form-control"  placeholder="Enter check number">
                 <label>Payment Date</label>
                 <input type="date" name="paymentDate" class="form-control" placeholder="date">
                 <label>amount</label>

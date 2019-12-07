@@ -35,3 +35,5 @@ Route::post('/payments', 'PaymentsController@insert');
 Route::get('/addstatus', 'OrdersController@create');
 Route::get('/statusedit{id}', 'OrdersController@edit');
 Route::get('/status', 'OrdersController@index');
+Route::post('/status', 'OrdersController@edit');
+Route::post('/addstatus', 'OrdersController@insert');

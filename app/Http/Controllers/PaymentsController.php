@@ -15,15 +15,15 @@ class PaymentsController extends Controller
     }
 
     public function insert(Request $req){
-        $customerNumber = $req->input('customerNumber',true);
-        $checkNumber = $req->input('checkNumber',false);
-        $paymentDate = $req->input('paymentDate',true);
-        $amount = $req->input('amount',true);
+        $customerNumber = $req->input('customerNumber');
+        $checkNumber = $req->input('checkNumber');
+        $paymentDate = $req->input('paymentDate');
+        $amount = $req->input('amount');
         
         $data = array('customerNumber'=>$customerNumber,"checkNumber"=>$checkNumber,"paymentDate"=>$paymentDate,"amount"=>$amount);
 
-        DB::table('payments')->insert($data);
-
-        return view('status');
+        Payments::insert($data);
+        return redirect('status');
+        
     }
 }

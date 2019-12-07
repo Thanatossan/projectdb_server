@@ -7,7 +7,7 @@
             <div class="col-8">
             @foreach ($orders as $order)
             <h2 style="color: #FF9900">ADD ORDER NUMBER {{$order->orderNumber}}</h2>
-            {{-- @if (count($errors) > 0)
+            @if (count($errors) > 0)
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors as $error)
@@ -16,12 +16,10 @@
                 </ul>
             </div>
                 
-            @endif --}}
-            {{-- <form  method="post" action="{{action('OrdersController@update',$orderNumber)}}"> --}}
-            <form method="post" action="
-            {{action('OrdersController@update', $orderNumber)}}">
-                {{csrf_field()}}
-                <input type="hidden" name="_method" value="PATCH" />
+            @endif
+            <form  method="post" action="{{action('OrdersController@update',$orderNumber)}}">
+            {{-- <form method="POST" action="/status"> --}}
+                @csrf
                 <h4 style="color: #FF9900">
                      @foreach ($customers as $customer)
                         @if($customer->customerNumber === $order->customerNumber)
@@ -54,8 +52,9 @@
                 <input type="submit" class="btn btn-block btn-lg" style="background-color: #FF9900" value="Save" />
                 </div>
             </div>
-            </form>
             @endforeach
+            </form>
+           
         </div>
         <div class="col"></div>
     </div>
