@@ -22,7 +22,27 @@ class OrdersController extends Controller
         return view('addstatus')->with('orders',$orders)->with('customers',$customer);
     }
 
-    public function insert(Request $req){
-        
+    public function edit($orderNumber){
+        // $orders = Orders::find($orderNumber);
+        $customer = Customer::all();
+        $orders = Orders::where('orders.orderNumber','=',$orderNumber)->get();
+        return view('statusedit', compact('orders','orderNumber'))->with('customers',$customer);
+    }
+
+    public function update(Request $req, $orderNumber){
+
+        $this->validate($req, [
+            'shippedDate'   => 'required',
+            'status'        => 'required',
+            'comments'      => 'required' 
+        ]);
+
+        $orders = Orders::where('orders.orderNumber','=',$orderNumber)->get();
+        $orders->shippedDate = $req->get('shippedDate');
+        $orders->status = $req->get('status');
+        $orders->comments = $req->get('comments');
+
+        $orders->save();
+        return view('status')->with('success', 'Data Update')->with('orders',$orders);
     }
 }

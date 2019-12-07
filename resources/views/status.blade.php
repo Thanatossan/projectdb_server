@@ -5,7 +5,17 @@
 <div class="container">
     <h1>CUSTOMER STATUS</h1>
     {{-- href="{{ route('addstatus') }}" --}}
-    <div  style="text-align:right;" > <a href="/addstatus"><button type="submit" class="btn btn-lg" style="background-color: #FF9900">Add New Order </button> </a></div><br>
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{$message}}</p>
+    </div>
+    @endif
+    <div  style="text-align:right;" > 
+        <a href="/addstatus">
+            <button type="submit" class="btn btn-lg" style="background-color: #FF9900">Add New Order</button> 
+        </a>
+    </div>
+    <br>
     <table class="table table-hover">
         <thead class="thead-dark">
             <tr>
@@ -36,20 +46,13 @@
                         @endforeach
                     </td>
                     <td style="text-align:center;" width="10%"> {{$order->shippedDate}}</td>
-                    <td style="text-align:center;" width="10%"><form>
-                            <select name="status">
-                                <option value="default">{{$order->status}}</option>
-                                <option value="cancelled">Cancelled</option>
-                                <option value="disputed">Disputed</option>
-                                <option value="in-process">In process</option>
-                                <option value="on-hold">On hold</option>
-                                <option value="resolved">Resolved</option>
-                                <option value="shipped">Shipped</option>
-                            </select>
-                        </form>  
-                    </td>
+                    <td style="text-align:center;" width="10%"> {{$order->status}}</td>
                     <td style="text-align:center;" width="30%">{{$order->comments}}</td>
-                    <td style="text-align:center;">Edit</td>
+                    <td> 
+                        <a href="{{action('OrdersController@edit',$order['orderNumber'])}}">
+                            <button type="submit" class="btn" style="background-color: #FF9900">Edit</button>
+                        </a>
+                    </td>
                 </tr>
             @endforeach
 
