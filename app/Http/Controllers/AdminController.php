@@ -39,7 +39,12 @@ class AdminController extends Controller
         $product= Products::all();
         return view('admin')->with('employees',$employee)->with('products',$product);
     }
-
+    public function manageProduct(){
+        $emp_num = auth()->user()->employeeNumber;
+        $employee = Employee::where('employees.employeeNumber','=',$emp_num)->get();
+        $product= Products::all();
+        return view('manageProduct') ->with('employees',$employee)->with('products',$product);
+    }
     public function insert(Request $req)
     {
         $productCode = $req->input('productCode',false);
