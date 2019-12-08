@@ -11,7 +11,6 @@
                 <th scope="col">CUSTOMER NAME</th>
                 <th scope="col" colspan="2">CONTACT NAME</th>
                 <th scope="col">PHONE NUMBER</th>
-                <th scope="col"></th>
 
             </tr>
         </thead>
@@ -23,9 +22,6 @@
                 <td>{{ $customer->contactFirstName}}</td>
                 <td>{{ $customer->contactLastName}}</td>
                 <td>{{ $customer->phone}}</td>
-                <td>
-                <button type="button" class="btn btn-danger" >Delete</button>
-                </td>
             </tr>
         </tbody>
         @endforeach
