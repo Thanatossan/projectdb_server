@@ -54,7 +54,7 @@ class OrdersController extends Controller
         $orders->timestamps = false;
         $orders->save();
 
-        return redirect('status');
+        return redirect('admin/status');
     }
 
     public function insert(Request $req){

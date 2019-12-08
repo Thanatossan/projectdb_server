@@ -35,7 +35,7 @@
             </div>
             <br>
             <div style="text-align: center">
-                <a href="{{route('status') }}" class="btn btn-lg " style="background-color: #FF9900;"> Product
+                <a href="/admin/status" class="btn btn-lg " style="background-color: #FF9900;"> Product
                     Order </a>
 
                 @if($employee->Manager() === "Sales Manager" || $employee->jobTitle ==="VP Sales"|| $employee->jobTitle

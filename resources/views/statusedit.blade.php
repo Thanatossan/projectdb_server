@@ -6,7 +6,7 @@
             <div class="col"></div>
             <div class="col-8">
             @foreach ($orders as $order)
-            <form  method="POST" action="/statusedit{{{$orderNumber}}}">
+            <form  method="POST" action="statusedit{{{$orderNumber}}}">
             <h2 style="color: #FF9900">ADD ORDER<br></h2>
             @if (count($errors) > 0)
             <div class="alert alert-danger">

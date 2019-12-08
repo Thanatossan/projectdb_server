@@ -11,7 +11,7 @@
     </div>
     @endif
     <div  style="text-align:right;" > 
-        <a href="/addstatus">
+        <a href="addstatus">
             <button type="submit" class="btn btn-lg" style="background-color: #FF9900">Add New Order</button> 
         </a>
     </div>

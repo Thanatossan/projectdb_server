@@ -23,6 +23,6 @@ class PaymentsController extends Controller
         $data = array('customerNumber'=>$customerNumber,"checkNumber"=>$checkNumber,"paymentDate"=>$paymentDate,"amount"=>$amount);
 
         Payments::insert($data);
-        return redirect('status');
+        return redirect('admin/status');
     }
 }

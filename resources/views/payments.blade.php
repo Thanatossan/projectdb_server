@@ -7,7 +7,7 @@
         <div class="col"></div>
         <div class="col-8">
             <h2 style="color: #FF9900">PAYMENTS</h2>
-            <form action="/payments" method="POST">
+            <form action="/admin/payments" method="POST">
             @csrf
                 <label for="">Customer Number </label>
                 <input type="integer" name="customerNumber" class="form-control" value="{{$customerNumber}}" readonly="readonly">

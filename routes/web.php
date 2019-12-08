@@ -28,15 +28,18 @@ Route::prefix('admin')->group(function(){
     Route::get('/ERM/{Sale}/','AdminController@erm')->name('admin.erm');
     Route::get('/ERM/Employee/{employeeNumber}', 'AdminController@edit')->name('admin.erm.edit');
     Route::post('/ERM/Employee/{employeeNumber}','AdminController@promote');
+
+    Route::resource('status','OrdersController');
+    Route::resource('payments','PaymentsController');
+    Route::post('/payments', 'PaymentsController@insert');
+    Route::get('/addstatus', 'OrdersController@create');
+    Route::get('/statusedit{orderNumber}', 'OrdersController@edit');
+    Route::get('/status', 'OrdersController@index');
+    Route::post('/status', 'OrdersController@edit');
+    Route::post('/statusedit{orderNumber}', 'OrdersController@update');
+    Route::post('/addstatus', 'OrdersController@insert');
 });
 Route::get('/customer', 'CustomerController@index');
 //Route::get('/status', 'OrdersController@index');
-Route::resource('status','OrdersController');
-Route::resource('payments','PaymentsController');
-Route::post('/payments', 'PaymentsController@insert');
-Route::get('/addstatus', 'OrdersController@create');
-Route::get('/statusedit{orderNumber}', 'OrdersController@edit');
-Route::get('/status', 'OrdersController@index')->name('status');
-Route::post('/status', 'OrdersController@edit');
-Route::post('/statusedit{orderNumber}', 'OrdersController@update');
-Route::post('/addstatus', 'OrdersController@insert');
+
+// Route::get('/status', 'OrdersController@index');

@@ -6,7 +6,7 @@
         <div class="col"></div>
         <div class="col-8">
             <h2 style="color: #FF9900">ADD ORDER</h2>
-            <form action="/addstatus" method="POST">
+            <form action="addstatus" method="POST">
             @csrf
                 <label>Customer Name</label>
                 <input type="text" name="customerName" class="form-control" aria-describedby="emailHelp" placeholder="Enter company">
