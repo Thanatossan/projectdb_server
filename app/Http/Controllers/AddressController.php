@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Address;
 
-class loginchoose extends Controller
+class AddressController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class loginchoose extends Controller
      */
     public function index()
     {
-        return view('loginchoose');
+        //
     }
 
     /**
@@ -80,5 +81,11 @@ class loginchoose extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function address()
+    {
+        $addresses = Address::all();
+        return view('addressManage')->with('addresses',$addresses);
     }
 }
