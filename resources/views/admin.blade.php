@@ -44,7 +44,8 @@
                     style="background-color: #FF9900;">Employee Resource Management </a>
 
                 @elseif($employee->jobTitle ==="VP Marketing")
-                <a href="{{route('status') }}" class="btn btn-lg " style="background-color: #FF9900;"> Create Coupon
+                <a href="{{route('admin.coupon') }}" class="btn btn-lg " style="background-color: #FF9900;"> Create
+                    Coupon
                 </a>
                 @endif
                 @endforeach

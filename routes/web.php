@@ -28,6 +28,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/ERM/{Sale}/','AdminController@erm')->name('admin.erm');
     Route::get('/ERM/Employee/{employeeNumber}', 'AdminController@edit')->name('admin.erm.edit');
     Route::post('/ERM/Employee/{employeeNumber}','AdminController@promote');
+    Route::get('/Coupon','CouponController@index') -> name('admin.coupon');
 });
 Route::get('/customer', 'CustomerController@index');
 //Route::get('/status', 'OrdersController@index');
