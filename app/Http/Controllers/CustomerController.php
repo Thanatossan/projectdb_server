@@ -19,6 +19,7 @@ class CustomerController extends Controller
 
         $customer = Customer::where('user_id','=',$id)->get();
         return view('customer')->with('customers',$customer);
+        
     }
 
     
