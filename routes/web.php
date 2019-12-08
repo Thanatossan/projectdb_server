@@ -13,6 +13,8 @@
 
 Route::get('/','shopController@index') -> name('shop.index');
 Route::get('/shop/{product}','shopController@show')->name('shop.show');
+Route::get('/product/{product}','shopController@show')->name('shop.show');
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -28,4 +30,13 @@ Route::prefix('admin')->group(function(){
     Route::post('/ERM/Employee/{employeeNumber}','AdminController@promote');
 });
 Route::get('/customer', 'CustomerController@index');
-Route::get('/', 'ProductsController@index');
+//Route::get('/status', 'OrdersController@index');
+Route::resource('status','OrdersController');
+Route::resource('payments','PaymentsController');
+Route::post('/payments', 'PaymentsController@insert');
+Route::get('/addstatus', 'OrdersController@create');
+Route::get('/statusedit{orderNumber}', 'OrdersController@edit');
+Route::get('/status', 'OrdersController@index');
+Route::post('/status', 'OrdersController@edit');
+Route::post('/statusedit{orderNumber}', 'OrdersController@update');
+Route::post('/addstatus', 'OrdersController@insert');
