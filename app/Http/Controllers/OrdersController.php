@@ -31,28 +31,29 @@ class OrdersController extends Controller
 
     public function update(Request $req, $orderNumber){
 
-        // $this->validate($req, [
-        //     'shippedDate'   => 'required',
-        //     'status'        => 'required',
-        //     'comments'      => 'required' 
-        // ]);
+        $orders = Orders::where('orders.orderNumber',$orderNumber)->first();
+        // return $orders = Orders::find($orderNumber);
+        $orders ->orderDate = $req->input('orderDate');
+        $orders ->requiredDate = $req->input('requiredDate');
+        $orders ->orderNumber = $req->input('orderNumber');
+        $orders ->shippedDate = $req->input('shippedDate');
+        $orders ->status = $req->input('status');
+        $orders ->comments = $req->input('comments');
+        $orders ->customerNumber = $req->input('customerNumber');
 
-        $orders = Orders::where('orders.orderNumber','=',$orderNumber)->get();
-        $shippedDate = $req->input('shippedDate');
-        $status = $req->input('status');
-        $comments = $req->input('comments');
-
-        $data = array('shippedDate'=>$shippedDate,'status'=>$status,'comments'=>$comments);
-
-        /*
-            $customerNumber = $req->input('customerNumber');
-        $checkNumber = $req->input('checkNumber');
-        $paymentDate = $req->input('paymentDate');
-        $amount = $req->input('amount');
+        // $data = array('orderNumber'=>$orderNumber,'orderDate'=>$orderDate,'requiredDate'=>$requiredDate,
+        //                'shippedDate'=>$shippedDate, 'status'=>$status, 'comments'=>$comments, 'customerNumber'=>$customerNumber);
         
-        $data = array('customerNumber'=>$customerNumber,"checkNumber"=>$checkNumber,"paymentDate"=>$paymentDate,"amount"=>$amount);
-        */
-        Orders::insert($data);
+        // $orderDate = $req->input('orderDate');
+        // $orders->requiredDate = $req->input('requiredDate');
+        // $orders->orderNumber = $req->input('orderNumber');
+        // $orders->shippedDate = $req->input('shippedDate');
+        // $orders->status = $req->input('status');
+        // $orders->comments = $req->input('comments');
+        // $orders->customerNumber = $req->input('customerNumber');
+        $orders->timestamps = false;
+        $orders->save();
+
         return redirect('status');
     }
 
@@ -64,10 +65,7 @@ class OrdersController extends Controller
         $shippedDate = $req->input('shippedDate');
         $status = "in-process";
         $comments = $req->input('comments');
-        $customerNumber = Customer::where('customers.customerName','=',$customerName)->max('customerNumber');
-        // return $customerNumber = Customer::pluck('customerNumber');
-
-        
+        $customerNumber = Customer::where('customers.customerName','=',$customerName)->max('customerNumber');        
         
         $data = array('orderNumber'=>$orderNumber,'orderDate'=>$shippedDate,'requiredDate'=>$shippedDate,
         'shippedDate'=>$shippedDate,"status"=>$status,"comments"=>$comments,'customerNumber'=>$customerNumber,'customerNumber'=>$customerNumber);

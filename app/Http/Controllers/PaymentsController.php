@@ -24,6 +24,5 @@ class PaymentsController extends Controller
 
         Payments::insert($data);
         return redirect('status');
-        
     }
 }

@@ -10,7 +10,7 @@
             <form action="/payments" method="POST">
             @csrf
                 <label for="">Customer Number </label>
-                <input type="integer" name="customerNumber" class="form-control" value="{{$customerNumber}}">
+                <input type="integer" name="customerNumber" class="form-control" value="{{$customerNumber}}" readonly="readonly">
                 <label>Check Number</label>
                 <input type="text" name="checkNumber" class="form-control"  placeholder="Enter check number">
                 <label>Payment Date</label>
