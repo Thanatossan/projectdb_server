@@ -34,11 +34,16 @@
                 </div>
             </div>
             <br>
-            @if($employee->Manager() === "Sales Manager" || $employee->jobTitle ==="VP Sales"|| $employee->jobTitle
-            ==="Sale Manager")
-            <a href="{{route('admin.erm',$employee->employeeNumber) }}" class="btn btn-lg offset-md-4"
-                style="background-color: #FF9900;">Employee Resource Management </a>
-            @endif
+            <div style="text-align: center">
+                <a href="{{route('status') }}" class="btn btn-lg " style="background-color: #FF9900;"> Product
+                    Order </a>
+
+                @if($employee->Manager() === "Sales Manager" || $employee->jobTitle ==="VP Sales"|| $employee->jobTitle
+                ==="Sale Manager")
+                <a href="{{route('admin.erm',$employee->employeeNumber) }}" class="btn btn-lg"
+                    style="background-color: #FF9900;">Employee Resource Management </a>
+                @endif
+            </div>
             @if($employee->sales() === "Sale")
 
             <br><br>
