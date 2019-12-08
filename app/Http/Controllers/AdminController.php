@@ -62,4 +62,12 @@ class AdminController extends Controller
         DB::table('products')->insert($data);
         return redirect('admin/manageProduct');
      }
+
+     public function delete($id){
+
+        $products = Products::find($id);
+        // $products->delete();
+        Products::destroy($id);
+        return redirect('admin/manageProduct');
+     }
 }

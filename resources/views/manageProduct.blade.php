@@ -71,7 +71,15 @@
                     <td>{{ $product->buyPrice}}</td>
                 </div>
                 <td>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                   <form method="POST" class="delete_form" action="{{action('AdminController@delete',$product->productCode)}}">
+                        {{csrf_field()}}
+                        <input type="hidden" name"_method" value="DALETE" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                   </form>
+
+                   <!-- <a href="/manageProduct/{{{$product->productCode}}}" method="POST"><button type="submit" class="btn btn-danger">Delete</button></a> -->
+
+                
                 </td>
                 <td>
                     <button type="button" class="btn btn-primary">Update</button>
@@ -81,4 +89,19 @@
         @endforeach
     </table>
 </div>
+
+<script>
+$(document).ready(function(){
+ $('.delete_form').on('submit', function(){
+  if(confirm("Are you sure you want to delete it?"))
+  {
+   return true;
+  }
+  else
+  {
+   return false;
+  }
+ });
+});
+</script>
 @endsection
