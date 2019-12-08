@@ -33,8 +33,11 @@
                     </div>
                 </div>
             </div>
-            @if($employee->Manager() === "Sales Manager" || $employee->jobTitle ==="VP Sales")
-            <a href="{{route('admin.erm',$employee->employeeNumber) }}"> go to ERM </a>
+            <br>
+            @if($employee->Manager() === "Sales Manager" || $employee->jobTitle ==="VP Sales"|| $employee->jobTitle
+            ==="Sale Manager")
+            <a href="{{route('admin.erm',$employee->employeeNumber) }}" class="btn btn-lg offset-md-4"
+                style="background-color: #FF9900;">Employee Resource Management </a>
             @endif
             @if($employee->sales() === "Sale")
 

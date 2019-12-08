@@ -47,8 +47,9 @@ class AdminController extends Controller
     }
     public function promote(Request $req,$employee_num){
         $employee = employee::where('employees.employeeNumber',$employee_num) -> first();
-        $employee-> jobTitle = $req->input('job');
+        $employee-> jobTitle = $req->input('jobTitle');
+        $employee->timestamps = false;
         $employee->save();
-        return redirect('erm');
+        return redirect()->route('admin.erm',auth()->user()->employeeNumber);
     }
 }
