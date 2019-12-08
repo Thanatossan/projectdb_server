@@ -12,7 +12,9 @@
 */
 
 Route::get('/','shopController@index') -> name('shop.index');
+Route::get('/shop/{product}','shopController@show')->name('shop.show');
 Route::get('/product/{product}','shopController@show')->name('shop.show');
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -23,8 +25,10 @@ Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    });
-    
+    Route::get('/ERM/{Sale}/','AdminController@erm')->name('admin.erm');
+    Route::get('/ERM/Employee/{employeeNumber}', 'AdminController@edit')->name('admin.erm.edit');
+    Route::post('/ERM/Employee/{employeeNumber}','AdminController@promote');
+});
 Route::get('/customer', 'CustomerController@index');
 //Route::get('/status', 'OrdersController@index');
 Route::resource('status','OrdersController');
