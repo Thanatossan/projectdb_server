@@ -4,7 +4,7 @@
 <div class="container">
     <h1>MANAGE Product</h1>
     <h2 style="text-align:center"> Create </h2>
-    <form action="/admin" method="POST">
+    <form action="{{action('AdminController@insert')}}" method="POST">
         @csrf
         <div class="form-row align-items-center">
             <div class="col-sm-5 my-1 mr-3">
@@ -59,7 +59,7 @@
                     <td>{{ $product->productName}}</td>
                     <td>{{ $product->productLine}}</td>
                     <td>{{ $product->productScale}}</td>
-                    <td colspan="2">{{ $product->productVendor}}</td>
+                    <td colspan=" 2">{{ $product->productVendor}}</td>
                     <td>{{ $product->quantityInStock}}</td>
                     <td>{{ $product->buyPrice}}</td>
                 </div>

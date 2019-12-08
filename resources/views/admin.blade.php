@@ -34,7 +34,7 @@
             </div>
             @if($employee->sales() === "Sale")
             <br><br>
-            <a href=""> go to manage Product</a>
+            <a href="{{route('admin.mant.product')}}"> go to manage Product</a>
             @elseif($employee->jobTitle ==="VP Marketing")
             <h2> hey I'm VP marketting</h2>
             @endif

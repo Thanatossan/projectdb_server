@@ -26,11 +26,12 @@ Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    Route::get('/mangaeProduct','AdminController@manageProduct') -> name("admin.mant.product");
-    });
+    Route::get('/manageProduct','AdminController@manageProduct') -> name("admin.mant.product");
+    Route::post('/manageProduct','AdminController@insert');    
+});
     
 Route::get('/customer', 'CustomerController@index');
 Route::get('/', 'ProductsController@index');
 
 // Route::get('/admin','AdminController@index');
-Route::post('/admin','AdminController@insert');
+// Route::post('/admin','AdminController@insert');
