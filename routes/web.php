@@ -34,11 +34,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     });
     
-Route::get('/customer', 'CustomerController@index');
-Route::get('/customer/total','totalController@index');
-Route::get('/status','statusController@index');
 Route::get('/manage','CustomerController@index');
-Route::get('/detail','detailController@index');
 Route::get('/addcustomer','addcustomerController@index');
 
 //insert data
