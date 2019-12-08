@@ -24,7 +24,7 @@ Route::prefix('admin')->group(function(){
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::get('/ERM/{Sale}/','AdminController@erm')->name('admin.erm');
-    });
-    
+    Route::get('/ERM/Employee{employeeNumber}', 'AdminController@edit');
+});
 Route::get('/customer', 'CustomerController@index');
 Route::get('/', 'ProductsController@index');

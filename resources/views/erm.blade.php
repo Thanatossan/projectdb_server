@@ -2,10 +2,20 @@
 
 @section('content')
 @foreach($login_employee as $loginedEmployee)
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <img src="{{URL::asset('/asset/logo.png')}}" alt="Profile Pic" class="img-thumbnail" height="100"
+                width="100" style="background-color: black">
+        </div>
+        <div class="col-sm">
+            <h5> Name : {{$loginedEmployee->firstName}} {{$loginedEmployee->lastName}} </h5>
+            <h5> Email: {{$loginedEmployee->email}}</h5>
+            <h5> Job Title: {{$loginedEmployee->jobTitle}}</h5>
+        </div>
 
-<h2> {{$loginedEmployee -> employeeNumber}}</h2>
-
-
+    </div>
+</div>
 <div class="container">
     <h1>ERM</h1>
 
