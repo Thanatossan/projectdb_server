@@ -37,6 +37,7 @@
             <div style="text-align: center">
                 <a href="/admin/status" class="btn btn-lg " style="background-color: #FF9900;"> Product
                     Order </a>
+                <a href="/admin/manage" class="btn btn-lg " style="background-color: #FF9900;"> Manage Customer </a>
 
                 @if($employee->Manager() === "Sales Manager" || $employee->jobTitle ==="VP Sales"|| $employee->jobTitle
                 ==="Sale Manager")

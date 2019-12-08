@@ -17,9 +17,7 @@ Route::get('/product/{product}','shopController@show')->name('shop.show');
 
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/loginchoose','loginchoose@index')->name('loginchoose');
-Route::get('/customer', 'CustomerController@index');
+
 
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -38,8 +36,13 @@ Route::prefix('admin')->group(function(){
     Route::post('/status', 'OrdersController@edit');
     Route::post('/statusedit{orderNumber}', 'OrdersController@update');
     Route::post('/addstatus', 'OrdersController@insert');
+    Route::get('/manage','CustomerController@index');
+    Route::get('/addcustomer','addcustomerController@index');
+    //insert data
+    Route::post('/addcustomer','addcustomerController@insert');
 });
-Route::get('/customer', 'CustomerController@index');
+
+
 //Route::get('/status', 'OrdersController@index');
 
 // Route::get('/status', 'OrdersController@index');
