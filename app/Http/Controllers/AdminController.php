@@ -59,7 +59,6 @@ class AdminController extends Controller
         $MSRP = $req->input('MSRP',false);
        
         $data = array('productCode'=>$productCode,"productName"=>$productName,"productLine"=>$productLine,"productScale"=>$productScale,"quantityInStock"=>$quantityInStock,"buyPrice"=>$buyPrice,"productVendor"=>$productVendor,"productDescription"=>$productDescription,"MSRP"=>$MSRP);
-
         DB::table('products')->insert($data);
         return redirect('admin/manageProduct');
      }

@@ -2,42 +2,49 @@
 
 @section('content')
 <div class="container">
-    <h1>MANAGE Product</h1>
+    <h1>MANAGE Product</h1><br>
     <h2 style="text-align:center"> Create </h2>
     <form action="{{action('AdminController@insert')}}" method="POST">
         @csrf
-        <div class="form-row align-items-center">
-            <div class="col-sm-5 my-1 mr-3">
-                <label class="sr-only" for="inlineFormInputName">Name</label>
+        <div class="form-row">
+            <div class="col-sm-2 my-1 mr-3">
+                <label class="" for="inlineFormInputName">Product Code</label>
                 <input type="text" class="form-control" name="productCode" placeholder="Product Code">
             </div>
             <div class="col-sm-5 my-1 mr-3">
-                <label class="sr-only" for="inlineFormInputName">Name</label>
+                <label class="" for="inlineFormInputName">Product Name</label>
                 <input type="text" class="form-control" name="productName" placeholder="Product Name">
             </div>
-            <div class="col-sm-3 my-1 mr-3">
-                <label class="sr-only" for="inlineFormInputName">Line</label>
+            <div class="col-sm-4 my-1 mr-3">
+                <label class="" for="inlineFormInputName">Product Line</label>
                 <input type="text" class="form-control" name="productLine" placeholder="Product Line">
             </div>
-            <div class="col-sm-3 my-1 mr-3">
-                <label class="sr-only" for="inlineFormInputName">Scale</label>
+            <div class="col-sm-2 my-1 mr-3">
+                <label class="" for="inlineFormInputName">Product Scale</label>
                 <input type="text" class="form-control" name="productScale" placeholder="Product Scale">
             </div>
-            <div class="col-sm-3 my-1 mr-3">
-                <label class="sr-only" for="inlineFormInputName">Stock</label>
+            <div class="col-sm-5 my-1 mr-3">
+                <label class="" for="inlineFormInputName">Product Vendor</label>
+                <input type="text" class="form-control" name="productVendor" placeholder="Product Vendor">
+            </div>
+            <div class="col-sm-2 my-1 mr-2">
+                <label class="" for="inlineFormInputName">Stock</label>
                 <input type="text" class="form-control" name="quantityInStock" placeholder="Stock">
             </div>
-            <div class="col-sm-3 my-1 mr-6">
-                <label class="sr-only" for="inlineFormInputName">Price</label>
+            <div class="col-sm-2 my-1 mr-3">
+                <label class="" for="inlineFormInputName">Price</label>
                 <input type="text" class="form-control" name="buyPrice" placeholder="Price">
             </div>
-
-            <div class="col-auto my-1 ">
-                <button type="submit" class="btn" style="background-color: #FF9900">Create</button>
-            </div>
-
+        </div><br>
+        <div class="row ">
+            <div class="col"></div>
+            <div class="col"><button type="submit" class="btn btn-block" style="background-color: #FF9900">Create</button></div>
+            <div class="col"></div>
         </div>
+
+
     </form>
+    <br>
     <table class="table table-hover">
         <thead class="thead-dark">
             <tr>
