@@ -25,7 +25,7 @@ class Products extends Model
          return money_format('$%i',$this->buyPrice);
     }
     public function product_line(){
-        $productline = preg_replace('/\s/', '',$this->productLine1);
+        $productline = preg_replace('/\s/','',$this->productLine);
         return $productline;
     }
 }
