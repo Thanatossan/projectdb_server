@@ -10,6 +10,11 @@ use App\Customer;
 
 class OrdersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+    
     public function index(){
         $orders = Orders::all();
         $customer = Customer::all();
