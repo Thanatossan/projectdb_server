@@ -61,6 +61,6 @@ class AdminController extends Controller
         $data = array('productCode'=>$productCode,"productName"=>$productName,"productLine"=>$productLine,"productScale"=>$productScale,"quantityInStock"=>$quantityInStock,"buyPrice"=>$buyPrice,"productVendor"=>$productVendor,"productDescription"=>$productDescription,"MSRP"=>$MSRP);
 
         DB::table('products')->insert($data);
-        // return view('admin');
+        return redirect('admin/manageProduct');
      }
 }
