@@ -35,7 +35,7 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -85,7 +85,7 @@ class AddressController extends Controller
 
     public function address()
     {
-        $addresses = Address::all();
-        return view('addressManage')->with('addresses',$addresses);
+        $address = Address::all();
+        return view('addressManage')->with('addresses',$address);
     }
 }
