@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Employee;
 use App\Products;
-
+use App\Coupons;
 class AdminController extends Controller
 {
     /**
@@ -51,5 +51,26 @@ class AdminController extends Controller
         $employee->timestamps = false;
         $employee->save();
         return redirect()->route('admin.erm',auth()->user()->employeeNumber);
+    }
+    public function createCoupon(){
+        $coupon = Coupons::all();
+        return view('coupon') -> with('coupons',$coupon);
+    }
+    public function addcreateCoupon(){
+        $coupon = Coupons::all();
+        return view('couponAdd') -> with('coupons',$coupon);
+    }
+    public function addCoupon(Request $req){
+
+        $coupon = Coupons::all();
+        $code = $req->input('code');
+        $expireDate = $req -> input('expireDate');
+        $discount = $req -> input('discount');
+        $times = $req -> input('times');
+        $data = array('code'=>$code,'discount'=>$discount,'times'=>$times,
+        'expireDate'=>$expireDate);
+        Coupons::insert($data);
+        //return view('couponAdd',$data) -> with('coupons',$coupon);
+        return redirect('admin/coupon/view');
     }
 }
