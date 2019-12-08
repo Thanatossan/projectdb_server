@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-sm">
             <img src="{{URL::asset('/asset/logo.png')}}" alt="Profile Pic" class="img-thumbnail" height="100"
-                width="100" style="background-color: black">
+                width="100" style="background-color: black;">
         </div>
         <div class="col-sm">
             <h5> Name : {{$loginedEmployee->firstName}} {{$loginedEmployee->lastName}} </h5>
@@ -17,7 +17,7 @@
     </div>
 </div>
 <div class="container">
-    <h1>ERM</h1>
+    <h1>Employee Resource Management</h1>
 
     <table class="table table-hover">
         <thead class="thead-dark">
@@ -44,11 +44,10 @@
                     <td>{{ $employee-> jobTitle}}</td>
                 </div>
                 <td>
-                    <button type="button" class="btn btn-success">Promote</button>
+                    <a href="{{action('AdminController@edit',$employee-> employeeNumber)}}"
+                        class="btn btn-success">Promote / Demote</a>
                 </td>
-                <td>
-                    <button type="button" class="btn btn-primary">Demote</button>
-                </td>
+
 
             </tr>
         </tbody>

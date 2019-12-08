@@ -39,4 +39,16 @@ class AdminController extends Controller
         $employee= employee::where('employees.reportsTo','=',$employee_num)->get();
         return view('erm')->with('login_employee',$login_employee)->with('employees',$employee);
     }
+    public function edit($employee_num){
+        $emp_num = auth()->user()->employeeNumber;
+        $login_employee = Employee::where('employees.employeeNumber','=',$emp_num)->get();
+        $employees = employee::where('employees.employeeNumber','=',$employee_num)->get();
+        return view('erm_edit',compact('employees','employee_num'))->with('login_employee',$login_employee);
+    }
+    public function promote(Request $req,$employee_num){
+        $employee = employee::where('employees.employeeNumber',$employee_num) -> first();
+        $employee-> jobTitle = $req->input('job');
+        $employee->save();
+        return redirect('erm');
+    }
 }
