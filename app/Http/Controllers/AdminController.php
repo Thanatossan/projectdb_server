@@ -55,24 +55,9 @@ class AdminController extends Controller
     }
 
     public function address(Request $request){
-        $data=$request->all();
-        $lastid=Address::create($data)->id;
-        if(count($request->addressLine1) > 0)
-        {
-            foreach($request->addressLine1 as $item=>$v){
-                $data2=array(
-                    'cutomerNumber'=>$lastid,
-                    'addressLine1'=>$request->addressLine1[$item],
-                    'addressLine2'=>$request->addressLine2[$item],
-                    'city'=>$request->city[$item],
-                    'state'=>$request->state[$item],
-                    'country'=>$request->country[$item],
-                    'postalCode'=>$request->postalCode[$item]
-                );
-                Address::insert($data2);
-            }
-        }
-        return redirect()->back()->with('success','data insert successfully');
+
+        
+        return redirect('/');
     }
 
     public function promote(Request $req,$employee_num){
