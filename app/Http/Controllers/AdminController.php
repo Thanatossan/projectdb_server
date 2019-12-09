@@ -108,8 +108,15 @@ class AdminController extends Controller
         DB::table('addresses')->insert($data);
         return redirect()->route('admin.cus.edit',$customer_num);
     }
-    public function deleteAddress(Request $req,$addressNumber){
-        Address::destroy($addressNumber);
+    public function deleteAddress($addressNumber,$customer_num){
+        
+        // return $customer_num;
+        // return $addressNumber;
+        $addresses_num = Address::where('addresses.addressNumber');
+        $addresses = $addresses_num -> find($addressNumber);
+      
+        $addresses->delete();
+        // return Address::find(1)->delete();
         return redirect()->route('admin.cus.edit',$customer_num);
     }
 

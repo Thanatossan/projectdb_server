@@ -27,8 +27,8 @@
                 <td>{{ $customer->contactFirstName}}</td>
                 <td>{{ $customer->contactLastName}}</td>
                 <td>{{ $customer->phone}}</td>
-                <td><a href="{{action('AdminController@edit_customer',$customer-> customerNumber)}}" class="btn btn-info edit"><i class="glyphicon glyphicon-remove">edit</i></a></td>
-                <td><a href="#" class="btn btn-danger remove"><i class="glyphicon glyphicon-remove">remove</i></a></td>
+                <td><a href="{{action('AdminController@edit_customer',$customer-> customerNumber)}}"
+                        class="btn btn-info edit"><i class="glyphicon glyphicon-remove">edit</i></a></td>
             </tr>
         </tbody>
         @endforeach

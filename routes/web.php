@@ -55,6 +55,7 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/info/{customerNumber}','AdminController@edit_customer')->name('admin.cus.edit');
     Route::post('/info/{customerNumber}','AdminController@address');
+    Route::post('/info/delete/{addressNumber}','AdminController@deleteAddress');
 
 });
 
