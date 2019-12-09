@@ -75,7 +75,7 @@
                     <form method="POST" class="delete_form"
                         action="{{action('AdminController@delete',$product->productCode)}}">
                         {{csrf_field()}}
-                        <input type="hidden" name"_method" value="DALETE" />
+                        <input type="hidden" name"_method" value="DELETE" />
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
 

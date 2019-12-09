@@ -10,21 +10,20 @@
         {{Session::get('success')}}
     </div>
     @endif
-    <form method="POST" action="/info/{customerNumber}">
+    @foreach($customer_tables as $customer_table)
+    <form method="POST" action="{{action('AdminController@address',$customer_table->customerNumber)}}">
         {{csrf_field()}}
         <div class="panel pannel-header">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        @foreach($customers as $customer)
+
                         <tr">
-                            <td>{{$customer->customerNumber}}</td>
+                            <td>{{$customer_table->customerNumber}}</td>
                             <br>
-                            <td>{{$customer->customerName }}</td>
-                            <td>{{$customer->contactFirstName}}</td>
-                            <td>{{$customer->contactLastName}}</td>
+                            <td>{{$customer_table->customerName }}</td>
                             <br>
-                            <td>{{ $customer->phone}}</td>
+                            <td>{{ $customer_table->phone}}</td>
                             </tr>
                             <br>
                             @endforeach

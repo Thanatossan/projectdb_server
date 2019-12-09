@@ -91,15 +91,26 @@ class AdminController extends Controller
     }
 
     public function edit_customer($customer_num){
-        $cus_num = auth()->user()->customerNumber;
-        $customers = Customer::where('customers.customerNumber','=',$customer_num)->get();
-        return view('cus_info')->with('customers',$customers);
+        $customers = Address::where('addresses.customerNumber','=',$customer_num)->get();
+        $customer_table = Customer::where('customers.customerNumber','=',$customer_num)->get();
+        return view('cus_info')->with('customers',$customers)->with('customer_tables',$customer_table);
     }
 
-    public function address(Request $request){
-
-        
-        return redirect('/');
+    public function address(Request $req,$customer_num){
+        $addressNumber = Address::where('addresses.customerNumber',$customer_num)->max("addressNumber")+1;
+        $addressLine1 = $req->input('addressline1',false);
+        $addressLine2 = $req->input('addressline2',false);
+        $city = $req ->input('city',false);
+        $state =$req -> input('state',false);
+        $postalCode = $req-> input('postalcode',false);
+        $country= $req-> input('country',false);
+        $data = array('addressNumber'=>$addressNumber,"customerNumber"=>$customer_num,"addressLine1"=>$addressLine1,"addressLine2"=>$addressLine2,"city"=>$city,"state"=>$state,"postalCode"=>$postalCode,"country"=>$country);
+        DB::table('addresses')->insert($data);
+        return redirect()->route('admin.cus.edit',$customer_num);
+    }
+    public function deleteAddress(Request $req,$addressNumber){
+        Address::destroy($addressNumber);
+        return redirect()->route('admin.cus.edit',$customer_num);
     }
 
     public function promote(Request $req,$employee_num){
