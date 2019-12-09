@@ -42,7 +42,6 @@
                             <th>State</th>
                             <th>Conutry</th>
                             <th>Postal Code</th>
-                            <th><a href="#" id="add" class="btn btn-info add">add</a></th>
                         </tr>
                         @foreach($customers as $row)
                         <tr class="Row">
@@ -64,20 +63,9 @@
                             <td><input type="text" name="state[]" class="form-control" ></td>
                             <td><input type="text" name="country[]" class="form-control" required=""></td>
                             <td><input type="text" name="postalcode[]" class="form-control"></td>
-                            <td><a href="#" id="remove" class="btn btn-danger remove">remove</a><td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td style="border: none"></td>
-                            <td style="border: none"></td>
-                            <td style="border: none"></td>
-                            <td style="border: none"></td>
-                            <td style="border: none"></td>
-                            <td style="border: none"></td>
                             <td><input type="submit" name="" value="Submit" class="btn btn-success"></td>
                         </tr>
-                    </tfoot>
+                    </tbody>
                 </table>
             </div>
         </form>
@@ -87,25 +75,6 @@
 
 @section('js')
 <script type="text/javascript">
-    $('.add').live('click',function(){
-        add();
-    });
-    function add()
-    {
-
-        var tr=
-        '<tr>'+
-        '<td><input type="text" name="addressline1[]" class="form-control" required=""></td>'+
-        '<td><input type="text" name="addressline2[]" class="form-control" ></td>'+
-        '<td><input type="text" name="city[]" class="form-control" required=""></td>'+
-        '<td><input type="text" name="state[]" class="form-control quantity"></td>'+
-        '<td><input type="text" name="country[]" class="form-control budget" required=""></td>'+
-        '<td><input type="text" name="postalcode[]" class="form-control amount"></td>'+
-        '<td><a href="#" id="remove" class="btn btn-danger remove">remove</a><td>'+
-        '</tr>';
-        $('tbody').append(tr);
-    };
-    
     $('.remove').live('click',function(){
         var last=$('tbody tr').length;
         if(last==1){
