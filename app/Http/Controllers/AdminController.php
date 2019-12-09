@@ -92,5 +92,22 @@ class AdminController extends Controller
         $employee->save();
         return redirect()->route('admin.erm',auth()->user()->employeeNumber);
     }
+    public function editProduct($Product_num){
+        $products = products::where('products.productCode',$Product_num) -> first();
+        return view('product_edit',compact('products','Product_num'));
+    }
+    public function updateProduct(Request $req,$Product_num){
+        $products = products::where('products.productCode',$Product_num) -> first();
+        // $products-> jobTitle = $req->input('jobTitle');
+        $products->productName = $req-> Input('productName');
+       
+        $products->productScale = $req-> Input('productScale');
+        $products->productVendor = $req-> Input('productVendor');
+        $products->quantityInStock = $req-> Input('quantityInStock');
+        $products->buyPrice = $req-> Input('buyPrice');
+        $products->timestamps = false;
 
+        $products->save();
+        return redirect()->route('admin.mant.product');
+    }
 }

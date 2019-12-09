@@ -36,11 +36,14 @@
 
             @if($employee->sales() === "Sale")
             <br><br>
-            <a href="{{route('admin.mant.product')}}"> go to manage Product</a>
+            <div style="text-align: center">
+                <a href="{{route('admin.mant.product')}}" class="btn btn-lg " style="background-color: #FF9900;"> go to
+                    manage Product</a>
+            </div>
             @elseif($employee->jobTitle ==="VP Marketing")
             <h2> hey I'm VP marketting</h2>
             @endif
-            
+
 
             <br>
             <div style="text-align: center">

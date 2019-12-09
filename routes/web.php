@@ -30,13 +30,12 @@ Route::prefix('admin')->group(function(){
     Route::get('/manageProduct','AdminController@manageProduct') -> name("admin.mant.product");
     Route::post('/manageProduct','AdminController@insert');
     Route::post('/manageProduct/{productCode}','AdminController@delete');
+    Route::get('/manageProduct/edit/{productCode}','AdminController@editProduct');
+    Route::post('/manageProduct/edit/{productCode}','AdminController@updateProduct');
     // Route::resource('manageProduct','AdminController');
     // Route::post('/manageProduct','AdminController@delete');    
-});
-
 // Route::get('/admin','AdminController@index');
 // Route::post('/admin','AdminController@insert');
-=======
     Route::get('/ERM/{Sale}/','AdminController@erm')->name('admin.erm');
     Route::get('/ERM/Employee/{employeeNumber}', 'AdminController@edit')->name('admin.erm.edit');
     Route::post('/ERM/Employee/{employeeNumber}','AdminController@promote');
@@ -52,8 +51,8 @@ Route::prefix('admin')->group(function(){
     Route::post('/addstatus', 'OrdersController@insert');
     Route::get('/manage','CustomerController@index');
     Route::get('/addcustomer','addcustomerController@index');
-    //insert data
     Route::post('/addcustomer','addcustomerController@insert');
+
 });
 
 

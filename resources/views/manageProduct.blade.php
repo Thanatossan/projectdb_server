@@ -38,7 +38,8 @@
         </div><br>
         <div class="row ">
             <div class="col"></div>
-            <div class="col"><button type="submit" class="btn btn-block" style="background-color: #FF9900">Create</button></div>
+            <div class="col"><button type="submit" class="btn btn-block"
+                    style="background-color: #FF9900">Create</button></div>
             <div class="col"></div>
         </div>
 
@@ -71,18 +72,20 @@
                     <td>{{ $product->buyPrice}}</td>
                 </div>
                 <td>
-                   <form method="POST" class="delete_form" action="{{action('AdminController@delete',$product->productCode)}}">
+                    <form method="POST" class="delete_form"
+                        action="{{action('AdminController@delete',$product->productCode)}}">
                         {{csrf_field()}}
                         <input type="hidden" name"_method" value="DALETE" />
                         <button type="submit" class="btn btn-danger">Delete</button>
-                   </form>
+                    </form>
 
-                   <!-- <a href="/manageProduct/{{{$product->productCode}}}" method="POST"><button type="submit" class="btn btn-danger">Delete</button></a> -->
+                    <!-- <a href="/manageProduct/{{{$product->productCode}}}" method="POST"><button type="submit" class="btn btn-danger">Delete</button></a> -->
 
-                
+
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary">Update</button>
+                    <a href="{{action('AdminController@editProduct',$product->productCode)}}"
+                        class="btn btn-success">Update</a>
                 </td>
             </tr>
         </tbody>
@@ -91,7 +94,7 @@
 </div>
 
 <script>
-$(document).ready(function(){
+    $(document).ready(function(){
  $('.delete_form').on('submit', function(){
   if(confirm("Are you sure you want to delete it?"))
   {
