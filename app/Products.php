@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     //
+
+    protected $dates = ['deleted_at'];
     protected $table = 'products';
-    
-    public $primaryKEY = 'productCode';
-
-
+    public $primaryKey = 'productCode';
+    public $incrementing = false;
+    protected $fillable =['productCode','productName','productLine','productScale','productVendor','productDescription','quantityInStock','buyPrice','MSRP'];
 
     public function vendorName()
     {   $stripped = preg_replace('/\s/', '',$this->productVendor);
@@ -25,7 +26,7 @@ class Products extends Model
          return money_format('$%i',$this->buyPrice);
     }
     public function product_line(){
-        $productline = preg_replace('/\s/', '',$this->productLine1);
+        $productline = preg_replace('/\s/','',$this->productLine);
         return $productline;
     }
 }

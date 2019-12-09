@@ -3,13 +3,21 @@
 namespace App\Http\Controllers;
 
 // use App\Http\Controllers\AdminController;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
+// use Illuminate\Support\Facades\DB;
+// use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Employee;
 use App\Products;
+
 use App\Customer;
 use App\Address;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controllers as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use DB;
+use App\OrderDetails;
+
 
 class AdminController extends Controller
 {
@@ -35,6 +43,40 @@ class AdminController extends Controller
         $product= Products::all();
         return view('admin')->with('employees',$employee)->with('products',$product);
     }
+
+    public function manageProduct(){
+        $emp_num = auth()->user()->employeeNumber;
+        $employee = Employee::where('employees.employeeNumber','=',$emp_num)->get();
+        $product= Products::all();
+        return view('manageProduct') ->with('employees',$employee)->with('products',$product);
+    }
+    public function insert(Request $req)
+    {
+        $productCode = $req->input('productCode',false);
+        $productName = $req->input('productName',false);
+        $productLine = $req->input('productLine',false);
+        $productScale = $req->input('productScale',false);
+        $quantityInStock = $req->input('quantityInStock',false);
+        $buyPrice = $req->input('buyPrice',false);
+
+        $productVendor = $req->input('productVendor',false);
+        $productDescription = $req->input('productDescription',false);
+        $MSRP = $req->input('MSRP',false);
+       
+        $data = array('productCode'=>$productCode,"productName"=>$productName,"productLine"=>$productLine,"productScale"=>$productScale,"quantityInStock"=>$quantityInStock,"buyPrice"=>$buyPrice,"productVendor"=>$productVendor,"productDescription"=>$productDescription,"MSRP"=>$MSRP);
+        DB::table('products')->insert($data);
+        return redirect('admin/manageProduct');
+     }
+
+     public function delete($id){
+
+        $products = Products::find($id);
+        // $products->delete();
+        $deletedRows = Orderdetails::where('productCode', $id)->delete();
+        Products::destroy($id);
+        return redirect('admin/manageProduct');
+     }
+
     public function erm($employee_num)
     {
         $login_employee = employee::where('employees.employeeNumber','=',$employee_num)->get();
@@ -66,5 +108,23 @@ class AdminController extends Controller
         $employee->timestamps = false;
         $employee->save();
         return redirect()->route('admin.erm',auth()->user()->employeeNumber);
+    }
+    public function editProduct($Product_num){
+        $products = products::where('products.productCode',$Product_num) -> first();
+        return view('product_edit',compact('products','Product_num'));
+    }
+    public function updateProduct(Request $req,$Product_num){
+        $products = products::where('products.productCode',$Product_num) -> first();
+        // $products-> jobTitle = $req->input('jobTitle');
+        $products->productName = $req-> Input('productName');
+       
+        $products->productScale = $req-> Input('productScale');
+        $products->productVendor = $req-> Input('productVendor');
+        $products->quantityInStock = $req-> Input('quantityInStock');
+        $products->buyPrice = $req-> Input('buyPrice');
+        $products->timestamps = false;
+
+        $products->save();
+        return redirect()->route('admin.mant.product');
     }
 }

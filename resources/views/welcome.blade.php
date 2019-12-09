@@ -98,8 +98,8 @@
         @foreach ($products as $product)
         <div class="grid-item {{$product->vendorName()}} {{$product->scale()}}">
           <div class="card">
-            <img class="card-img-top" src="{{URL::asset('/asset/logo.png')}}" alt="product pic" height="200" width="100"
-              style="background-color:black">
+            <img class="card-img-top" src="{{URL::asset('/asset/'.$product->product_line().'.jpg')}}" alt="product pic"
+              height="200" width="100" style="background-color:black">
             <div class="card-body">
               <p> {{$product->productName}}</p>
               <p class="name">{{ $product->productVendor}}</p>

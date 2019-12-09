@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 use App\Customer;
 
 class CustomerController extends Controller
-{
+{   
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function index(){
         // $id = auth()->user()->id;
         // $user = DB::table('users')->get();

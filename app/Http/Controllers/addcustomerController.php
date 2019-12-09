@@ -17,6 +17,12 @@ class addcustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function __invoke(Request $request)
     {
         //
@@ -49,6 +55,8 @@ class addcustomerController extends Controller
 
         DB::table('customers')->insert($data);
 
+
         return redirect('admin/manage');
+
      }
 }
