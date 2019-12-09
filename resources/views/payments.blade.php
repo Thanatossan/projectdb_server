@@ -7,10 +7,13 @@
         <div class="col"></div>
         <div class="col-8">
             <h2 style="color: #FF9900">PAYMENTS</h2>
-            <form action="/admin/payments" method="POST">
+            @foreach ($orders as $order)
+            <form action="/admin/payments/{{{$order->orderNumber}}}" method="POST">
             @csrf
+            
                 <label for="">Customer Number </label>
-                <input type="integer" name="customerNumber" class="form-control" value="{{$customerNumber}}" readonly="readonly">
+                <input type="integer" name="customerNumber" class="form-control" value="{{$order->customerNumber}}" readonly="readonly">
+            
                 <label>Check Number</label>
                 <input type="text" name="checkNumber" class="form-control"  placeholder="Enter check number">
                 <label>Payment Date</label>
@@ -24,10 +27,10 @@
                 </div>
             </div>
             </form>
+            @endforeach
             
         </div>
         <div class="col"></div>
     </div>
 </div>
-
 @endsection

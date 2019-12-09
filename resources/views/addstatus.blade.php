@@ -10,13 +10,17 @@
             @csrf
                 <label>Customer Name</label>
                 <input type="text" name="customerName" class="form-control" aria-describedby="emailHelp" placeholder="Enter company">
-                <label>Shipped Date</label>
-                <input type="date" name="shippedDate" class="form-control">
+                 <label>Order Date</label>
+                <input type="date" name="orderDate" class="form-control" value="<?php echo date('Y-m-d');?>" readonly="readonly">
+                <label>Shipping Date</label>
+                <input type="date" name="requiredDate" class="form-control">
                 <label>Order List</label>
                 <table>
                     <tbody>
                         <tr>
-                            <td width="90%"><input type="text" name="productCode" class="form-control" placeholder="Enter Product Code"></td>
+                            <td><input type="text" name="productCode" class="form-control" placeholder="Enter Product Code . . ."></td>
+                            <td><input type="integer" name="quantityOrdered" class="form-control" placeholder="Enter Quantity . . ."></td>
+                            <td><input type="double" name="priceEach" class="form-control" placeholder="Enter Each price . . . "></td>
                             <td><a href="#" class="btn btn-info addRow" style="background-color: #FF9900">+</a><br></td>
                         </tr>
                     </tbody>
@@ -42,8 +46,11 @@
     });
 
     function addRow(){
-        var tr =    '<tr><td width="90%"><input type="text" name="productCode" class="form-control" placeholder="Enter Product Code"></td>'+
-                    '<td><a href="#" class="btn btn-info remove" style="background-color: #FF9900">-</a><br></td></tr>';
+        var tr =    '<tr>'+
+                        '<td><input type="text" name="productCode" class="form-control" placeholder="Enter Product Code . . ."></td>'+
+                        '<td><input type="integer" name="quantityOrdered" class="form-control" placeholder="Enter Quantity . . . "></td>'+
+                        '<td><input type="float" name="priceEach" class="form-control" placeholder="Each price . . . "></td>'+
+                        '<td><a href="#" class="btn btn-info remove" style="background-color: #FF9900">-</a><br></td></tr>';
             $('tbody').append(tr);
     };
 
