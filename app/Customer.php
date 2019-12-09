@@ -8,6 +8,5 @@ class Customer extends Model
 {
     // Table Name
     protected $table = 'customers';
-
     public $primaryKey = 'customerNumber';
 }

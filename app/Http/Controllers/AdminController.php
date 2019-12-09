@@ -8,12 +8,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Employee;
 use App\Products;
+
+use App\Customer;
+use App\Address;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controllers as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use DB;
 use App\OrderDetails;
+
 
 class AdminController extends Controller
 {
@@ -85,6 +89,19 @@ class AdminController extends Controller
         $employees = employee::where('employees.employeeNumber','=',$employee_num)->get();
         return view('erm_edit',compact('employees','employee_num'))->with('login_employee',$login_employee);
     }
+
+    public function edit_customer($customer_num){
+        $cus_num = auth()->user()->customerNumber;
+        $customers = Customer::where('customers.customerNumber','=',$customer_num)->get();
+        return view('cus_info')->with('customers',$customers);
+    }
+
+    public function address(Request $request){
+
+        
+        return redirect('/');
+    }
+
     public function promote(Request $req,$employee_num){
         $employee = employee::where('employees.employeeNumber',$employee_num) -> first();
         $employee-> jobTitle = $req->input('jobTitle');
