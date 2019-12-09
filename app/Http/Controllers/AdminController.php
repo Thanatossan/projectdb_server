@@ -39,6 +39,7 @@ class AdminController extends Controller
         $product= Products::all();
         return view('admin')->with('employees',$employee)->with('products',$product);
     }
+
     public function manageProduct(){
         $emp_num = auth()->user()->employeeNumber;
         $employee = Employee::where('employees.employeeNumber','=',$emp_num)->get();
@@ -71,4 +72,25 @@ class AdminController extends Controller
         Products::destroy($id);
         return redirect('admin/manageProduct');
      }
+
+    public function erm($employee_num)
+    {
+        $login_employee = employee::where('employees.employeeNumber','=',$employee_num)->get();
+        $employee= employee::where('employees.reportsTo','=',$employee_num)->get();
+        return view('erm')->with('login_employee',$login_employee)->with('employees',$employee);
+    }
+    public function edit($employee_num){
+        $emp_num = auth()->user()->employeeNumber;
+        $login_employee = Employee::where('employees.employeeNumber','=',$emp_num)->get();
+        $employees = employee::where('employees.employeeNumber','=',$employee_num)->get();
+        return view('erm_edit',compact('employees','employee_num'))->with('login_employee',$login_employee);
+    }
+    public function promote(Request $req,$employee_num){
+        $employee = employee::where('employees.employeeNumber',$employee_num) -> first();
+        $employee-> jobTitle = $req->input('jobTitle');
+        $employee->timestamps = false;
+        $employee->save();
+        return redirect()->route('admin.erm',auth()->user()->employeeNumber);
+    }
+
 }

@@ -11,6 +11,18 @@ class PaymentsController extends Controller
 {
     public function index(){
         $payments = Payments::all();
-        return view('welcome')->with('payments',$payments);
+        return view('payments')->with('payments',$payments);
+    }
+
+    public function insert(Request $req){
+        $customerNumber = $req->input('customerNumber');
+        $checkNumber = $req->input('checkNumber');
+        $paymentDate = $req->input('paymentDate');
+        $amount = $req->input('amount');
+        
+        $data = array('customerNumber'=>$customerNumber,"checkNumber"=>$checkNumber,"paymentDate"=>$paymentDate,"amount"=>$amount);
+
+        Payments::insert($data);
+        return redirect('admin/status');
     }
 }

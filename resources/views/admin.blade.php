@@ -28,17 +28,38 @@
                                 <h5> Email: {{$employee->email}}</h5>
                                 <h5> Job Title: {{$employee->jobTitle}}</h5>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+
             @if($employee->sales() === "Sale")
             <br><br>
             <a href="{{route('admin.mant.product')}}"> go to manage Product</a>
             @elseif($employee->jobTitle ==="VP Marketing")
             <h2> hey I'm VP marketting</h2>
             @endif
-            @endforeach
+            
+
+            <br>
+            <div style="text-align: center">
+                <a href="/admin/status" class="btn btn-lg " style="background-color: #FF9900;"> Product
+                    Order </a>
+                <a href="/admin/manage" class="btn btn-lg " style="background-color: #FF9900;"> Manage Customer </a>
+
+                @if($employee->Manager() === "Sales Manager" || $employee->jobTitle ==="VP Sales"|| $employee->jobTitle
+                ==="Sale Manager")
+                <a href="{{route('admin.erm',$employee->employeeNumber) }}" class="btn btn-lg"
+                    style="background-color: #FF9900;">Employee Resource Management </a>
+
+                @elseif($employee->jobTitle ==="VP Marketing")
+                <a href="{{route('status') }}" class="btn btn-lg " style="background-color: #FF9900;"> Create Coupon
+                </a>
+                @endif
+                @endforeach
+            </div>
+
         </div>
     </div>
 </div>

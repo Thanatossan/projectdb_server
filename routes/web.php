@@ -16,26 +16,48 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','shopController@index') -> name('shop.index');
 Route::get('/shop/{product}','shopController@show')->name('shop.show');
+Route::get('/product/{product}','shopController@show')->name('shop.show');
+
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/loginchoose','loginchoose@index')->name('loginchoose');
-Route::get('/customer', 'CustomerController@index');
+
 
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
+
     Route::get('/manageProduct','AdminController@manageProduct') -> name("admin.mant.product");
     Route::post('/manageProduct','AdminController@insert');
     Route::post('/manageProduct/{productCode}','AdminController@delete');
     // Route::resource('manageProduct','AdminController');
     // Route::post('/manageProduct','AdminController@delete');    
 });
-    
-Route::get('/customer', 'CustomerController@index');
-Route::get('/', 'ProductsController@index');
-
 
 // Route::get('/admin','AdminController@index');
 // Route::post('/admin','AdminController@insert');
+=======
+    Route::get('/ERM/{Sale}/','AdminController@erm')->name('admin.erm');
+    Route::get('/ERM/Employee/{employeeNumber}', 'AdminController@edit')->name('admin.erm.edit');
+    Route::post('/ERM/Employee/{employeeNumber}','AdminController@promote');
+
+    Route::resource('status','OrdersController');
+    Route::resource('payments','PaymentsController');
+    Route::post('/payments', 'PaymentsController@insert');
+    Route::get('/addstatus', 'OrdersController@create');
+    Route::get('/statusedit{orderNumber}', 'OrdersController@edit');
+    Route::get('/status', 'OrdersController@index');
+    Route::post('/status', 'OrdersController@edit');
+    Route::post('/statusedit{orderNumber}', 'OrdersController@update');
+    Route::post('/addstatus', 'OrdersController@insert');
+    Route::get('/manage','CustomerController@index');
+    Route::get('/addcustomer','addcustomerController@index');
+    //insert data
+    Route::post('/addcustomer','addcustomerController@insert');
+});
+
+
+//Route::get('/status', 'OrdersController@index');
+
+// Route::get('/status', 'OrdersController@index');
+

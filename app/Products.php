@@ -25,6 +25,10 @@ class Products extends Model
     public function money(){
          return money_format('$%i',$this->buyPrice);
     }
+    public function product_line(){
+        $productline = preg_replace('/\s/','',$this->productLine);
+        return $productline;
+    }
 }
 
 

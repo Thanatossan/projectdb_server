@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Payments extends Model
+class Coupons extends Model
 {
-    protected $table = 'payments';
+    protected $table = 'coupons';
 }
