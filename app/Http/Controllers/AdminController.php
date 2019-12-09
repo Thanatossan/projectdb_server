@@ -13,7 +13,7 @@ use Illuminate\Routing\Controllers as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use DB;
-
+use App\OrderDetails;
 
 class AdminController extends Controller
 {
@@ -67,6 +67,7 @@ class AdminController extends Controller
 
         $products = Products::find($id);
         // $products->delete();
+        $deletedRows = Orderdetails::where('productCode', $id)->delete();
         Products::destroy($id);
         return redirect('admin/manageProduct');
      }

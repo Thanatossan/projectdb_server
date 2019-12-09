@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     //
+
+    protected $dates = ['deleted_at'];
     protected $table = 'products';
     public $primaryKey = 'productCode';
     public $incrementing = false;
