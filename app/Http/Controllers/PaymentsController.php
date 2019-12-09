@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Payments;
+use App\Products;
+use App\Orders;
 
 class PaymentsController extends Controller
 {
@@ -21,6 +23,14 @@ class PaymentsController extends Controller
         $amount = $req->input('amount');
         
         $data = array('customerNumber'=>$customerNumber,"checkNumber"=>$checkNumber,"paymentDate"=>$paymentDate,"amount"=>$amount);
+        
+        /*$quantityInStock = Products::where('products.productCode', $req->input('productCode'))->first();
+         if ($quantityInStock <= $amount) {
+            $status = Orders::where('orders.orderNumber', $req->input('orderNumber'))->first();
+            $status = 'shipped';
+            //$status->save();
+         }
+        */
 
         Payments::insert($data);
         return redirect('admin/status');

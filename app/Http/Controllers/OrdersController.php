@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Orders;
 use App\Customer;
+use App\Coupons;
 
 class OrdersController extends Controller
 {
@@ -74,8 +75,15 @@ class OrdersController extends Controller
         
         $data = array('orderNumber'=>$orderNumber,'orderDate'=>$shippedDate,'requiredDate'=>$shippedDate,
         'shippedDate'=>$shippedDate,"status"=>$status,"comments"=>$comments,'customerNumber'=>$customerNumber,'customerNumber'=>$customerNumber);
-        Orders::insert($data);
+       
 
+        $coupons = Coupons::where('coupons.code', $req->input('code'))->first();
+        $coupons->times = $coupons->max('times')-1;
+        $coupons->timestamps = false;
+        $coupons->save();
+        
+
+        Orders::insert($data);
         return view('payments',$data);
         // return $data;
     }
