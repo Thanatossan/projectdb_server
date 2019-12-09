@@ -6,6 +6,7 @@
     <form action="{{action('AdminController@updateProduct',$Product_num)}}" method="POST">
         @csrf
         @endforeach
+        <h2> Edit product </h2>
         <div class="form-row">
             <div class="col-sm-2 my-1 mr-3">
 
