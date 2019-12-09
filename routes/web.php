@@ -11,6 +11,9 @@
 |
 */
 
+// use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/','shopController@index') -> name('shop.index');
 Route::get('/shop/{product}','shopController@show')->name('shop.show');
 Route::get('/product/{product}','shopController@show')->name('shop.show');
@@ -23,6 +26,17 @@ Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
+
+    Route::get('/manageProduct','AdminController@manageProduct') -> name("admin.mant.product");
+    Route::post('/manageProduct','AdminController@insert');
+    Route::post('/manageProduct/{productCode}','AdminController@delete');
+    // Route::resource('manageProduct','AdminController');
+    // Route::post('/manageProduct','AdminController@delete');    
+});
+
+// Route::get('/admin','AdminController@index');
+// Route::post('/admin','AdminController@insert');
+=======
     Route::get('/ERM/{Sale}/','AdminController@erm')->name('admin.erm');
     Route::get('/ERM/Employee/{employeeNumber}', 'AdminController@edit')->name('admin.erm.edit');
     Route::post('/ERM/Employee/{employeeNumber}','AdminController@promote');
@@ -46,3 +60,4 @@ Route::prefix('admin')->group(function(){
 //Route::get('/status', 'OrdersController@index');
 
 // Route::get('/status', 'OrdersController@index');
+

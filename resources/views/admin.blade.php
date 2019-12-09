@@ -33,6 +33,15 @@
                     </div>
                 </div>
             </div>
+
+            @if($employee->sales() === "Sale")
+            <br><br>
+            <a href="{{route('admin.mant.product')}}"> go to manage Product</a>
+            @elseif($employee->jobTitle ==="VP Marketing")
+            <h2> hey I'm VP marketting</h2>
+            @endif
+            
+
             <br>
             <div style="text-align: center">
                 <a href="/admin/status" class="btn btn-lg " style="background-color: #FF9900;"> Product
@@ -50,6 +59,7 @@
                 @endif
                 @endforeach
             </div>
+
         </div>
     </div>
 </div>
