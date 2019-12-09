@@ -40,6 +40,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/addcustomer','addcustomerController@index');
     //insert data
     Route::post('/addcustomer','addcustomerController@insert');
+    Route::get('/info/{customerNumber}','AdminController@edit_customer')->name('admin.cus.edit');
+    Route::post('/info/{customerNumber}','AdminController@address');
 });
 
 

@@ -15,7 +15,8 @@
                 <th scope="col">CUSTOMER NAME</th>
                 <th scope="col" colspan="2">CONTACT NAME</th>
                 <th scope="col">PHONE NUMBER</th>
-
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         @foreach ($customers as $customer)
@@ -26,11 +27,23 @@
                 <td>{{ $customer->contactFirstName}}</td>
                 <td>{{ $customer->contactLastName}}</td>
                 <td>{{ $customer->phone}}</td>
+                <td><a href="{{action('AdminController@edit_customer',$customer-> customerNumber)}}" class="btn btn-info edit"><i class="glyphicon glyphicon-remove">edit</i></a></td>
+                <td><a href="#" class="btn btn-danger remove"><i class="glyphicon glyphicon-remove">remove</i></a></td>
             </tr>
         </tbody>
         @endforeach
     </table>
-
 </div>
+@endsection
 
+@section('js')
+<script type="text/javascript">
+    $('.remove').on('click',function(){
+        var last=$('tbody tr').length;
+        if(confirm('Do you want to delete your address?')==true)
+        {
+            $(this).parent().parent().remove();
+        }
+    });
+</script>
 @endsection
