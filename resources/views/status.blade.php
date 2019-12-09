@@ -14,6 +14,7 @@
         <a href="addstatus">
             <button type="submit" class="btn btn-lg" style="background-color: #FF9900">Add New Order</button> 
         </a>
+        
     </div>
     <br>
     <table class="table table-hover">
@@ -25,6 +26,7 @@
                 <th scope="col" style="text-align:center;">Shipped Date</th>
                 <th scope="col" style="text-align:center;">Status</th>
                 <th scope="col" style="text-align:center;">Comments</th>
+                <th scope="col" style="text-align:center;"></th>
                 <th scope="col" style="text-align:center;"></th>
             </tr>
         </thead>
@@ -52,7 +54,12 @@
                         <a href="{{action('OrdersController@edit',$order['orderNumber'])}}">
                             <button type="submit" class="btn" style="background-color: #FF9900">Edit</button>
                         </a>
+                        
                     </td>
+                    <td>
+                        <a href="{{action('PaymentsController@index',$order['orderNumber'])}}"><button type="submit" class="btn" style="background-color: #FF9900">Payments</button></a> 
+                    </td>
+                    
                 </tr>
             @endforeach
 

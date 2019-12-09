@@ -41,8 +41,9 @@ Route::prefix('admin')->group(function(){
     Route::post('/ERM/Employee/{employeeNumber}','AdminController@promote');
 
     Route::resource('status','OrdersController');
-    Route::resource('payments','PaymentsController');
-    Route::post('/payments', 'PaymentsController@insert');
+    //Route::resource('payments','PaymentsController');
+    Route::get('/payments/{customerNumber}', 'PaymentsController@index');
+    Route::post('/payments/{orderNumber}', 'PaymentsController@insert');
     Route::get('/addstatus', 'OrdersController@create');
     Route::get('/statusedit{orderNumber}', 'OrdersController@edit');
     Route::get('/status', 'OrdersController@index');
@@ -55,6 +56,7 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/info/{customerNumber}','AdminController@edit_customer')->name('admin.cus.edit');
     Route::post('/info/{customerNumber}','AdminController@address');
+    Route::post('/info/delete/{addressNumber}','AdminController@deleteAddress');
 
 });
 

@@ -46,17 +46,6 @@ class OrdersController extends Controller
         $orders ->status = $req->input('status');
         $orders ->comments = $req->input('comments');
         $orders ->customerNumber = $req->input('customerNumber');
-
-        // $data = array('orderNumber'=>$orderNumber,'orderDate'=>$orderDate,'requiredDate'=>$requiredDate,
-        //                'shippedDate'=>$shippedDate, 'status'=>$status, 'comments'=>$comments, 'customerNumber'=>$customerNumber);
-        
-        // $orderDate = $req->input('orderDate');
-        // $orders->requiredDate = $req->input('requiredDate');
-        // $orders->orderNumber = $req->input('orderNumber');
-        // $orders->shippedDate = $req->input('shippedDate');
-        // $orders->status = $req->input('status');
-        // $orders->comments = $req->input('comments');
-        // $orders->customerNumber = $req->input('customerNumber');
         $orders->timestamps = false;
         $orders->save();
 
@@ -65,26 +54,23 @@ class OrdersController extends Controller
 
     public function insert(Request $req){
         $orderNumber = Orders::max('orderNumber')+1;
-        // $orderDate
-        // $requiredDate
+        $orderDate = $req->input('orderDate');
         $customerName = $req->input('customerName');
-        $shippedDate = $req->input('shippedDate');
-        $status = "in-process";
+        $requiredDate = $req->input('requiredDate');
+        $status = "in progress";
         $comments = $req->input('comments');
         $customerNumber = Customer::where('customers.customerName','=',$customerName)->max('customerNumber');        
-        
-        $data = array('orderNumber'=>$orderNumber,'orderDate'=>$shippedDate,'requiredDate'=>$shippedDate,
-        'shippedDate'=>$shippedDate,"status"=>$status,"comments"=>$comments,'customerNumber'=>$customerNumber,'customerNumber'=>$customerNumber);
-       
 
+        $data = array('orderNumber'=>$orderNumber,'orderDate'=>$requiredDate,'requiredDate'=>$requiredDate
+        ,"status"=>$status,"comments"=>$comments,'customerNumber'=>$customerNumber,'customerNumber'=>$customerNumber);
+        Orders::insert($data);
+
+        
         $coupons = Coupons::where('coupons.code', $req->input('code'))->first();
         $coupons->times = $coupons->max('times')-1;
         $coupons->timestamps = false;
         $coupons->save();
-        
-
-        Orders::insert($data);
-        return view('payments',$data);
-        // return $data;
+        //return view('payments',$data);
+        return redirect('/admin/status');
     }
 }
