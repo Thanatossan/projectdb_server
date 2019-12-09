@@ -10,6 +10,7 @@
             @csrf
                 <label>Customer Name</label>
                 <input type="text" name="customerName" class="form-control" aria-describedby="emailHelp" placeholder="Enter company">
+
                  <label>Order Date</label>
                 <input type="date" name="orderDate" class="form-control" value="<?php echo date('Y-m-d');?>" readonly="readonly">
                 <label>Shipping Date</label>
@@ -21,12 +22,15 @@
                             <td><input type="text" name="productCode" class="form-control" placeholder="Enter Product Code . . ."></td>
                             <td><input type="integer" name="quantityOrdered" class="form-control" placeholder="Enter Quantity . . ."></td>
                             <td><input type="double" name="priceEach" class="form-control" placeholder="Enter Each price . . . "></td>
+
                             <td><a href="#" class="btn btn-info addRow" style="background-color: #FF9900">+</a><br></td>
                         </tr>
                     </tbody>
                 </table>
                 <label>Comments</label>
                 <textarea name="comments" id="" cols="30" rows="10" class="form-control"></textarea>
+                <label>Coupon</label>
+                <input type="text" name="code" class="form-control" placeholder="Enter coupon">
                 <br>
             <div class="row">
                 <div class="col-md-6 offset-md-3">
